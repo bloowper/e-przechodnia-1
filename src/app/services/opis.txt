@@ -1,2 +1,0 @@
-tutaj wrzucamy serwisy odpowiedzialne za logike pod spodem.
-Np pobieranie danych lekarzy(tutaj np z przetrzymywaniem tego w liscie bo bez backendu)

@@ -14,12 +14,26 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { VisitSearchComponent } from './components/visits/visit-search/visit-search.component';
+import { DoctorListComponent } from './components/visits/doctor/doctor-list/doctor-list.component';
+import { DoctorListElementComponent } from './components/visits/doctor/doctor-list-element/doctor-list-element.component';
+import { SignInComponent } from './components/sign/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign/sign-up/sign-up.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from '@angular/material/input';
+import {MatDividerModule} from "@angular/material/divider";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomepageComponent,
+    VisitSearchComponent,
+    DoctorListComponent,
+    DoctorListElementComponent,
+    SignInComponent,
+    SignUpComponent,
   ],
     imports: [
         BrowserModule,
@@ -33,7 +47,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
         MatCardModule,
         MatPaginatorModule,
         HttpClientModule,
-
+        MatFormFieldModule,
+        MatInputModule,
+        MatDividerModule
     ],
   providers: [],
   bootstrap: [AppComponent]

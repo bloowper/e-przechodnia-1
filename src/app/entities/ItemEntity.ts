@@ -12,25 +12,3 @@ export class ItemEntity {
     }
 
 }
-
-// @Id
-// @GeneratedValue(generator = "UUID") private UUID uuid; @NotNull private String title; @NotNull private String
-// subTitle;
-//
-// @NotNull
-// private String mainPhotoUrl;
-//
-// @NotNull
-// @Lob
-// private String shortDescription;
-//
-// @NotNull
-// @Lob
-// private String description;
-//
-// @Singular
-// @ElementCollection
-// @CollectionTable(
-//     name = "ITEM_PHOTO"
-// )
-// private List<String> photos;
