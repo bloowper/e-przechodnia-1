@@ -1,2 +1,0 @@
-tutaj wrzucamy obiekty dt/entities
-typowe reprezentujace cos pobranego z bazy danych

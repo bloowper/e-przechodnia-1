@@ -1,20 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemStorageService} from "../../services/item/item-storage.service";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 @Component({
     selector: 'app-homepage',
     templateUrl: './homepage.component.html',
-    styleUrls: ['./homepage.component.css']
+    styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
 
-    constructor(private itemStorageServiceService: ItemStorageService) {
+    constructor(public authenticationService: AuthenticationService) {
     }
 
     ngOnInit(): void {
     }
 
     onTest() {
-        this.itemStorageServiceService.fetchItems(0, 16, null, null);
+
     }
 }
