@@ -2,19 +2,22 @@
     <span>{{websiteName}}</span>
 
     <button mat-button routerLink="/homepage" routerLinkActive="mat-accent">Strona domowa</button>
-    <button mat-button routerLink="/szukaj" routerLinkActive="mat-accent">Wyszukaj wizyte</button>
+    <button mat-button routerLink="/visits" routerLinkActive="mat-accent">Wyszukaj wizyte</button>
 
     <span class="spacer"></span>
     <button [disabled]="true" mat-mini-fab color="primary" aria-label="ustawienia">
         <mat-icon>settings</mat-icon>
     </button>
-    <button *ngIf="authenticationService.isNotLoggedIn()" mat-raised-button color="primary" routerLink="/logowanie"
-            class="leftmargin" routerLinkActive="mat-accent">Logowanie
+    <button routerLink="/login" *ngIf="authenticationService.isNotLoggedIn()" mat-raised-button color="primary"
+            class="leftmargin" routerLinkActive="mat-accent" type="button">
+        Logowanie
     </button>
-    <button *ngIf="authenticationService.isNotLoggedIn()" mat-raised-button color="primary" routerLink="/rejestracja"
-            class="leftmargin" routerLinkActive="mat-accent">Rejestracja
+    <button routerLink="/register" *ngIf="authenticationService.isNotLoggedIn()" mat-raised-button color="primary"
+            class="leftmargin" routerLinkActive="mat-accent" type="button">
+        Rejestracja
     </button>
     <button *ngIf="authenticationService.isLoggedIn()" mat-raised-button color="primary" class="leftmargin"
-            (click)="logout()">Wyloguj się
+            (click)="logout()" type="button">
+        Wyloguj się
     </button>
 </mat-toolbar>
