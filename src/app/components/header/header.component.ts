@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../services/authentication/authentication.service";
-import {Authentication} from "../../entities/Authentication";
+import {AuthEntity} from "../../entities/AuthEntity";
 import {UserType} from "../../entities/UserType";
 
 @Component({
@@ -24,6 +24,6 @@ export class HeaderComponent implements OnInit {
 
     logout() {
 
-        this.authenticationService.auth = new Authentication(null, UserType.NOT_LOGGED_ID, null, null);
+        this.authenticationService.auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
     }
 }

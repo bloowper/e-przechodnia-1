@@ -2,7 +2,7 @@
 NOT TO LIST OTHER USERS*/
 import {UserType} from "./UserType";
 
-export class Authentication {
+export class AuthEntity {
 
   constructor(
     public token:string|null,

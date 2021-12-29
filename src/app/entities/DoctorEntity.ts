@@ -5,7 +5,7 @@ export class DoctorEntity {
     public id:number,
     public firstName:string,
     public lastName:string,
-    public image:string
+    public thumbnailImageUrl:string
   ) {
 
   }

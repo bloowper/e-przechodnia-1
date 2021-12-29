@@ -3,21 +3,45 @@
 
     <button mat-button routerLink="/homepage" routerLinkActive="mat-accent">Strona domowa</button>
     <button mat-button routerLink="/visits" routerLinkActive="mat-accent">Wyszukaj wizyte</button>
+    <button *ngIf="authenticationService.isDoctor()" mat-button routerLink="/doctorPanel" routerLinkActive="mat-accent">Panel lekarza</button>
+
 
     <span class="spacer"></span>
-    <button [disabled]="true" mat-mini-fab color="primary" aria-label="ustawienia">
+    <button
+        *ngIf="authenticationService.isLoggedIn()"
+        mat-mini-fab
+        color="primary"
+        aria-label="ustawienia"
+    >
         <mat-icon>settings</mat-icon>
     </button>
-    <button routerLink="/login" *ngIf="authenticationService.isNotLoggedIn()" mat-raised-button color="primary"
-            class="leftmargin" routerLinkActive="mat-accent" type="button">
+    <button routerLink="/login"
+            *ngIf="authenticationService.isNotLoggedIn()"
+            mat-raised-button
+            class="leftmargin"
+            routerLinkActive="mat-accent"
+            type="button"
+    >
         Logowanie
     </button>
-    <button routerLink="/register" *ngIf="authenticationService.isNotLoggedIn()" mat-raised-button color="primary"
-            class="leftmargin" routerLinkActive="mat-accent" type="button">
+    <button
+        routerLink="/register"
+        *ngIf="authenticationService.isNotLoggedIn()"
+        mat-raised-button
+        class="leftmargin"
+        routerLinkActive="mat-accent"
+        type="button"
+    >
         Rejestracja
     </button>
-    <button *ngIf="authenticationService.isLoggedIn()" mat-raised-button color="primary" class="leftmargin"
-            (click)="logout()" type="button">
+    <button
+        (click)="logout()"
+        *ngIf="authenticationService.isLoggedIn()"
+        mat-raised-button
+        color="primary"
+        class="leftmargin"
+        type="button"
+    >
         Wyloguj się
     </button>
 </mat-toolbar>
