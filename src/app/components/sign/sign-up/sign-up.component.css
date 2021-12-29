@@ -1,0 +1,21 @@
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+mat-form-field {
+    display: block;
+}
+
+mat-card-title {
+    border-bottom: 1px solid #69f0ae;
+}
+
+.padding-bottom{
+    padding-bottom: 10px;
+}
+
+.padding-top{
+    padding-top: 10px;
+}

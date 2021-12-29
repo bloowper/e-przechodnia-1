@@ -2,13 +2,13 @@
 NOT TO LIST OTHER USERS*/
 import {UserType} from "./UserType";
 
-export class AuthorityEntity {
+export class Authentication {
 
   constructor(
     public token:string|null,
     public authority:UserType,
-    public login:string|null,
-    public id:string|null,
+    public email:string|null,
+    public id:number|null,
   ) {}
 
   public isLoggedIn():boolean {
@@ -16,7 +16,7 @@ export class AuthorityEntity {
   }
 
   public isNotLoggedIn():boolean {
-    return this.isLoggedIn();
+    return !this.isLoggedIn();
   }
 
   public isDoctor(): boolean {

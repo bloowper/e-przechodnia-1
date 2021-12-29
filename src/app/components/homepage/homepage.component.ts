@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemStorageService} from "../../services/item/item-storage.service";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 @Component({
     selector: 'app-homepage',
@@ -8,13 +9,13 @@ import {ItemStorageService} from "../../services/item/item-storage.service";
 })
 export class HomepageComponent implements OnInit {
 
-    constructor(private itemStorageServiceService: ItemStorageService) {
+    constructor(public authenticationService: AuthenticationService) {
     }
 
     ngOnInit(): void {
     }
 
     onTest() {
-        this.itemStorageServiceService.fetchItems(0, 16, null, null);
+
     }
 }
