@@ -4,6 +4,7 @@
     <button mat-button routerLink="/homepage" routerLinkActive="mat-accent">Strona domowa</button>
     <button mat-button routerLink="/visits" routerLinkActive="mat-accent">Wyszukaj wizyte</button>
     <button *ngIf="authenticationService.isDoctor()" mat-button routerLink="/doctorPanel" routerLinkActive="mat-accent">Panel lekarza</button>
+    <button *ngIf="authenticationService.isPatient()" mat-button routerLink="/patientPanel" routerLinkActive="mat-accent">Mój panel</button>
 
 
     <span class="spacer"></span>

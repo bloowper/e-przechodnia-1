@@ -17,11 +17,18 @@ export class AuthenticationService {
     private _auth: AuthEntity;
 
     constructor() {
-        this._auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
+        var storageData = localStorage.getItem('auth');
+        if (storageData != null) {
+            var parse = JSON.parse(storageData);
+            this._auth = new AuthEntity(parse['token'], parse['authority'], parse['email'], parse['id']);
+        } else {
+            this._auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
+        }
     }
 
     public isLoggedIn():boolean {
         return this._auth.isLoggedIn()
+
     }
 
     public isNotLoggedIn():boolean {
@@ -49,7 +56,10 @@ export class AuthenticationService {
         console.log(`email ${email} password ${password}`)
         var find:mockUser|undefined = this.mockUsers.find(value => value.email == email);
         if (find != undefined && find.password === password) {
-            this.authObservable$.next(new AuthEntity("TOKEN", find.authority, find.email, find.id));
+            var authEntity = new AuthEntity("TOKEN", find.authority, find.email, find.id);
+            localStorage.setItem("auth", JSON.stringify(authEntity));
+            this.auth = authEntity;
+            this.authObservable$.next(authEntity);
         } else {
             this.authObservable$.error(new Error("Nieprawidłowe dane"))
         }

@@ -24,7 +24,6 @@ export class SignInComponent implements OnInit {
         this.authenticationService.authObservable$.subscribe(value => {
             console.log("Login success on submit")
             if (value != null) {
-                this.authenticationService.auth = value;
                 this.router.navigate(['/'])
             }
         }, error => {

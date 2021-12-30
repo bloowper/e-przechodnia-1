@@ -39,6 +39,8 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { FooterComponent } from './components/homepage/footer/footer.component';
+import { MainDoctorPanelComponent } from './components/panels/doctor/main-doctor-panel/main-doctor-panel.component';
+import { MainPatientPanelComponent } from './components/panels/patient/main-patient-panel/main-patient-panel.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { FooterComponent } from './components/homepage/footer/footer.component';
     SignInComponent,
     SignUpComponent,
     FooterComponent,
+    MainDoctorPanelComponent,
+    MainPatientPanelComponent,
   ],
     imports: [
         BrowserModule,

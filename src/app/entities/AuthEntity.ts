@@ -20,11 +20,11 @@ export class AuthEntity {
   }
 
   public isDoctor(): boolean {
-    return this.authority == UserType.DOCTOR;
+    return this.authority === UserType.DOCTOR;
   }
 
   public isPatient(): boolean {
-    return this.authority == UserType.PATIENT;
+    return this.authority === UserType.PATIENT;
   }
 
 }
