@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatButton} from "@angular/material/button";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-visit-search',
@@ -13,7 +14,7 @@ export class VisitSearchComponent implements OnInit {
     isEVisit = false;
     isPersonal = false;
 
-    constructor() {
+    constructor(private router:Router) {
 
     }
 
@@ -68,5 +69,9 @@ export class VisitSearchComponent implements OnInit {
         } else {
             mb.color = undefined;
         }
+    }
+
+    search() {
+        this.router.navigate(['/','visits','search'])
     }
 }
