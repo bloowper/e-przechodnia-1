@@ -1,0 +1,32 @@
+
+$gap: 30px;
+$s_gap: 10px;
+$button: 120px;
+$dropdown: 500px;
+
+.content{
+    display: grid;
+    //grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3,minmax(500px,1fr));
+}
+
+mat-card{
+    grid-column-start: 2;
+}
+
+mat-toolbar {
+    grid-column-start: 2;
+}
+
+.input-width {
+    width: 300px;
+}
+
+.margin-bottom {
+    margin-bottom: 30px;
+}
+
+
+.dropdown-width {
+    width: $dropdown;
+}

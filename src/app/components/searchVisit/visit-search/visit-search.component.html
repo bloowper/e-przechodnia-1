@@ -1,0 +1,61 @@
+<div class="content">
+    <mat-card>
+        <mat-card-title class="margin-bottom">Wyszukaj wizytę</mat-card-title>
+        <mat-card-content fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start" class="margin-bottom">
+            <span fxLayout="row" fxLayoutGap="10px">
+                <button
+                    #private (click)="privateVisit(private)"
+                    mat-raised-button
+                    [matBadge]="isPrivateVisit? '+':''"
+                >
+                    Prywatnie
+                </button>
+                <button
+                    #found (click)="nonPrivateVisit(found)"
+                    mat-raised-button
+                    [matBadge]="isNfzVisit? '+':''"
+                >
+                    Na fundusz
+                </button>
+            </span>
+            <span fxLayout="row" fxLayoutGap="10px">
+                <button
+                    #evisit
+                    (click)="eVisit(evisit)"
+                    mat-raised-button
+                    [matBadge]="isEVisit? '+':''"
+                >
+                    Wizyta zdalna
+                </button>
+                <button
+                    #personal (click)="personalVisit(personal)"
+                    mat-raised-button
+                    [matBadge]="isPersonal? '+':''"
+                >
+                    Wizyta osobista
+                </button>
+            </span>
+        </mat-card-content>
+        <mat-card-content fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start center" class="margin-bottom">
+            <mat-form-field appearance="fill" >
+                <mat-label>Miasto</mat-label>
+                <mat-select>
+                    <mat-option value="KRAKÓW">Kraków</mat-option>
+                    <mat-option value="WARSZAWA">Warszawa</mat-option>
+                    <mat-option value="LUBLIN">Lublin</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill" >
+                <mat-label>Specjalizacja</mat-label>
+                <mat-select>
+                    <mat-option value="STOMATOLOG">Stomatolog</mat-option>
+                    <mat-option value="ORTOPEDA">Ortopeda</mat-option>
+                    <mat-option value="CHIRURG">Chirurg</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="accent">Wyszukaj</button>
+        </mat-card-content>
+
+    </mat-card>
+</div>
+<button routerLink="search"  mat-button>go to doctor list</button>

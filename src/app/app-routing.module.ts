@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Router, RouterModule, Routes} from "@angular/router";
 import {HomepageComponent} from "./components/homepage/homepage.component";
-import {VisitSearchComponent} from "./components/visits/visit-search/visit-search.component";
+import {VisitSearchComponent} from "./components/searchVisit/visit-search/visit-search.component";
 import {SignInComponent} from "./components/sign/sign-in/sign-in.component";
 import {SignUpComponent} from "./components/sign/sign-up/sign-up.component";
-import {DoctorListComponent} from "./components/visits/doctor/doctor-list/doctor-list.component";
+import {DoctorListComponent} from "./components/searchVisit/doctor/doctor-list/doctor-list.component";
 import {MainDoctorPanelComponent} from "./components/panels/doctor/main-doctor-panel/main-doctor-panel.component";
 import {MainPatientPanelComponent} from "./components/panels/patient/main-patient-panel/main-patient-panel.component";
 
