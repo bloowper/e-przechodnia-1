@@ -43,6 +43,9 @@ import { MainDoctorPanelComponent } from './components/panels/doctor/main-doctor
 import { MainPatientPanelComponent } from './components/panels/patient/main-patient-panel/main-patient-panel.component';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MatSelectModule} from "@angular/material/select";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTabsModule} from "@angular/material/tabs";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 
 @NgModule({
@@ -92,6 +95,9 @@ import {MatSelectModule} from "@angular/material/select";
         FormsModule,
         MatBadgeModule,
         MatSelectModule,
+        MatGridListModule,
+        MatTabsModule,
+        ScrollingModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
