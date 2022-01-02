@@ -12,6 +12,7 @@ $dropdown: 500px;
 
 mat-card{
     grid-column-start: 2;
+
 }
 
 mat-toolbar {
@@ -29,4 +30,15 @@ mat-toolbar {
 
 .dropdown-width {
     width: $dropdown;
+}
+
+
+.jumbotron {
+    background-image: url("https://wallpaperaccess.com/full/136999.jpg");
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.5);
+    margin-top: -20px;
 }

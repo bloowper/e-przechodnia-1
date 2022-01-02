@@ -1,4 +1,5 @@
-<div class="content">
+
+<div class="content jumbotron">
     <mat-card>
         <mat-card-title class="margin-bottom">Wyszukaj wizytę</mat-card-title>
         <mat-card-content fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start" class="margin-bottom">
@@ -53,9 +54,8 @@
                     <mat-option value="CHIRURG">Chirurg</mat-option>
                 </mat-select>
             </mat-form-field>
-            <button mat-raised-button color="accent">Wyszukaj</button>
+            <button mat-raised-button color="accent" (click)="search()">Wyszukaj</button>
         </mat-card-content>
 
     </mat-card>
 </div>
-<button routerLink="search"  mat-button>go to doctor list</button>
