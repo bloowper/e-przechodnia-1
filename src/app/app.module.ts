@@ -15,9 +15,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from '@angular/material/card';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { VisitSearchComponent } from './components/visits/visit-search/visit-search.component';
-import { DoctorListComponent } from './components/visits/doctor/doctor-list/doctor-list.component';
-import { DoctorListElementComponent } from './components/visits/doctor/doctor-list-element/doctor-list-element.component';
+import { VisitSearchComponent } from './components/searchVisit/visit-search/visit-search.component';
+import { DoctorListComponent } from './components/searchVisit/doctor/doctor-list/doctor-list.component';
+import { DoctorListElementComponent } from './components/searchVisit/doctor/doctor-list-element/doctor-list-element.component';
 import { SignInComponent } from './components/sign/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign/sign-up/sign-up.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -41,6 +41,8 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { FooterComponent } from './components/homepage/footer/footer.component';
 import { MainDoctorPanelComponent } from './components/panels/doctor/main-doctor-panel/main-doctor-panel.component';
 import { MainPatientPanelComponent } from './components/panels/patient/main-patient-panel/main-patient-panel.component';
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -88,6 +90,8 @@ import { MainPatientPanelComponent } from './components/panels/patient/main-pati
         MdbTooltipModule,
         MdbValidationModule,
         FormsModule,
+        MatBadgeModule,
+        MatSelectModule,
     ],
   providers: [],
   bootstrap: [AppComponent]
