@@ -46,7 +46,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatTabsModule} from "@angular/material/tabs";
 import {ScrollingModule} from "@angular/cdk/scrolling";
-
+import {MatDialogModule} from "@angular/material/dialog";
+import { DevpopupComponent } from './components/homepage/devpopup/devpopup.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     FooterComponent,
     MainDoctorPanelComponent,
     MainPatientPanelComponent,
+    DevpopupComponent,
   ],
     imports: [
         BrowserModule,
@@ -98,6 +100,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
         MatGridListModule,
         MatTabsModule,
         ScrollingModule,
+        MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]
