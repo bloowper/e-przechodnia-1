@@ -12,6 +12,7 @@ mat-card.top {
     border-radius: 150px;
     width: 150px;
     height: 150px;
+    cursor: pointer;
 }
 
 .address-card {
@@ -32,6 +33,16 @@ mat-card.top {
 
 
 .more-information {
-    grid-column: 4/7;
+    grid-column: 4/8;
     grid-row: 1/3;
+}
+
+.calendar {
+    grid-column: 8/13;
+    grid-row: 1/3;
+    cursor: pointer;
+}
+
+.pricing {
+    width: 100%;
 }
