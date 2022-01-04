@@ -7,14 +7,6 @@
             <mat-tab-group color="accent">
                 <mat-tab>
                     <ng-template mat-tab-label>
-                        <mat-icon color="accent">switch_video</mat-icon>
-                        e-wizyta
-                    </ng-template>
-                    Dokładne instrukcje zostaną przesłane przed wizytą.
-                    W przypadku chęci umówienia dokładnej drogi kontaktu prosze o sms 123 123 123
-                </mat-tab>
-                <mat-tab>
-                    <ng-template mat-tab-label>
                         <mat-icon color="accent" >home</mat-icon>
                         1
                     </ng-template>
@@ -28,11 +20,19 @@
                     </ng-template>
                     Lublin Zamkowa 32. Parter pokój 360
                 </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon color="accent">switch_video</mat-icon>
+                        e-wizyta
+                    </ng-template>
+                    Dokładne instrukcje zostaną przesłane przed wizytą.
+                    W przypadku chęci umówienia dokładnej drogi kontaktu prosze o sms 123 123 123
+                </mat-tab>
             </mat-tab-group>
         </mat-card-content>
     </mat-card>
     <mat-card class="about-me">
-        <mat-card-title>Imie Nazwisko</mat-card-title>
+        <mat-card-title style="cursor: pointer">Imie Nazwisko</mat-card-title>
         <mat-card-content>
             krótki opis
             voluptas impedit incidunt
@@ -44,26 +44,45 @@
         </mat-card-content>
     </mat-card>
     <mat-card class="more-information">
-        <mat-tab-group color="accent">
-            <mat-tab>
+        <mat-tab-group color="accent" >
+            <mat-tab >
                 <ng-template mat-tab-label>
                     Cennik
                 </ng-template>
-                ab
+                <table mat-table [dataSource]="medicalService" class="pricing">
+                    <!-- name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Nazwa </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <!-- price Column -->
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef> Cena </th>
+                        <td mat-cell *matCellDef="let element"> {{element.price}} PLN</td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="medicalServiceColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: medicalServiceColumns;"></tr>
+                </table>
             </mat-tab>
             <mat-tab>
                 <ng-template mat-tab-label>
                     Ostatnie Opinie
                 </ng-template>
-                ab
+
             </mat-tab>
 
             <mat-tab>
                 <ng-template mat-tab-label>
                     Więcej o mnie
                 </ng-template>
-                ab
+
             </mat-tab>
         </mat-tab-group>
+    </mat-card>
+    <mat-card class="calendar">
+        <mat-card-title>Najbliższe terminy</mat-card-title>
+        <mat-card-content>not implemented</mat-card-content>
     </mat-card>
 </mat-card>

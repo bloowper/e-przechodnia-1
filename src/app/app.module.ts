@@ -48,6 +48,8 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatDialogModule} from "@angular/material/dialog";
 import { DevpopupComponent } from './components/homepage/devpopup/devpopup.component';
+import {MatListModule} from "@angular/material/list";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -100,7 +102,9 @@ import { DevpopupComponent } from './components/homepage/devpopup/devpopup.compo
         MatGridListModule,
         MatTabsModule,
         ScrollingModule,
-        MatDialogModule
+        MatDialogModule,
+        MatListModule,
+        MatTableModule
     ],
   providers: [],
   bootstrap: [AppComponent]
