@@ -1,3 +1,7 @@
-<p>doctor-list works!</p>
-Pojedynczy lekarz
-<app-doctor-list-element></app-doctor-list-element>
+<div fxLayout="column" fxLayoutGap="40px">
+    <app-doctor-list-element
+        *ngFor="let i of [1,2,3,4,5]"
+    ></app-doctor-list-element>
+    <mat-paginator></mat-paginator>
+</div>
+

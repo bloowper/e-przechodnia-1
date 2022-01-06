@@ -1,12 +1,25 @@
 
 //for represent doctor in list of doctors
-export class DoctorEntity {
-  constructor(
-    public id:number,
-    public firstName:string,
-    public lastName:string,
-    public thumbnailImageUrl:string
-  ) {
+export interface DoctorEntity {
+    id:number,
+    firstName:string,
+    lastName:string,
+    thumbnailImageUrl:string,
+    briefDescription: string,
+    addresses: DoctorAddress[];
+}
 
-  }
+export interface MedicalServiceEntity{
+    name: string;
+    price: number;
+}
+
+export interface DoctorAddress {
+    type:AddressType
+    information: string;
+}
+
+export enum AddressType {
+    EVISIT,
+    NORMAL
 }

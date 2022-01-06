@@ -1,46 +1,24 @@
 
 <mat-card class="top" >
-    <img class="doctor-image"  src="https://i.pinimg.com/564x/e3/69/d7/e369d7e313c8dc041f24958d5d36ff67.jpg" alt="zdjecie lekarza">
+    <img class="doctor-image"  [src]='doctorEntity.thumbnailImageUrl' alt="zdjecie lekarza">
     <mat-card class="address-card">
         <mat-card-title>Adresy</mat-card-title>
         <mat-card-content class="addresy-flex">
             <mat-tab-group color="accent">
-                <mat-tab>
+                <mat-tab *ngFor="let address of doctorEntity.addresses; let i = index">
                     <ng-template mat-tab-label>
-                        <mat-icon color="accent" >home</mat-icon>
-                        1
+                        <mat-icon color="accent" *ngIf="isEvisit(address.type)">switch_video</mat-icon>
+                        <mat-icon color="accent" *ngIf="isNormalVisit(address.type)">home</mat-icon>
                     </ng-template>
-                    Kraków Aleja 3 maja 5. Pokój 23 drugie piętro
-                </mat-tab>
-
-                <mat-tab>
-                    <ng-template mat-tab-label>
-                        <mat-icon color="accent">home</mat-icon>
-                        2
-                    </ng-template>
-                    Lublin Zamkowa 32. Parter pokój 360
-                </mat-tab>
-                <mat-tab>
-                    <ng-template mat-tab-label>
-                        <mat-icon color="accent">switch_video</mat-icon>
-                        e-wizyta
-                    </ng-template>
-                    Dokładne instrukcje zostaną przesłane przed wizytą.
-                    W przypadku chęci umówienia dokładnej drogi kontaktu prosze o sms 123 123 123
+                    {{address.information}}
                 </mat-tab>
             </mat-tab-group>
         </mat-card-content>
     </mat-card>
     <mat-card class="about-me">
-        <mat-card-title style="cursor: pointer">Imie Nazwisko</mat-card-title>
+        <mat-card-title style="cursor: pointer">{{doctorEntity.firstName}} {{doctorEntity.lastName}}</mat-card-title>
         <mat-card-content>
-            krótki opis
-            voluptas impedit incidunt
-            perspiciatis consequatur deserunt
-            velit minus corporis voluptatibus
-            ea non animi a nobis dolorem
-            qui tenetur quas ducimus
-            necessitatibus est libero qui eaque
+            {{doctorEntity.briefDescription}}
         </mat-card-content>
     </mat-card>
     <mat-card class="more-information">
@@ -70,14 +48,14 @@
                 <ng-template mat-tab-label>
                     Ostatnie Opinie
                 </ng-template>
-
+                nott implemented
             </mat-tab>
 
             <mat-tab>
                 <ng-template mat-tab-label>
                     Więcej o mnie
                 </ng-template>
-
+                not implemented
             </mat-tab>
         </mat-tab-group>
     </mat-card>
