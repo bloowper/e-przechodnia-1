@@ -27,7 +27,7 @@
                 <ng-template mat-tab-label>
                     Cennik
                 </ng-template>
-                <table mat-table [dataSource]="medicalService" class="pricing">
+                <table mat-table [dataSource]="doctorEntity.services" class="pricing">
                     <!-- name Column -->
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef> Nazwa </th>

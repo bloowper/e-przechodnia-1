@@ -8,14 +8,7 @@ import {AddressType, DoctorEntity, MedicalServiceEntity} from "../../../../entit
 })
 export class DoctorListElementComponent implements OnInit {
 
-    medicalService: MedicalServiceEntity[] = [
-        {name:"qui excepturi ",price: 125},
-        {name:"eaque officiis",price: 125},
-        {name:"tenetur nulla",price: 125},
-        {name:"sint illum",price: 125}
-    ];
     medicalServiceColumns = ['name','price'];
-
     @Input() public doctorEntity: DoctorEntity;
 
     constructor() {
@@ -29,6 +22,12 @@ export class DoctorListElementComponent implements OnInit {
                 {type:AddressType.EVISIT,information:'Dokładne instrukcje zostaną przesłane przed wizytą. W przypadku chęci umówienia dokładnej drogi kontaktu prosze o sms 123 123 123'},
                 {type:AddressType.NORMAL,information:'Lublin Zamkowa 32. Parter pokój 360 w srody i piatki'},
                 {type:AddressType.NORMAL,information:'Lublin Zamkowa 32. Parter pokój 360 w srody i piatki'},
+            ],
+            services: [
+                {name:"qui excepturi ",price: 125},
+                {name:"eaque officiis",price: 125},
+                {name:"tenetur nulla",price: 125},
+                {name:"sint illum",price: 125}
             ]
         }
     }

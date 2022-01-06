@@ -7,6 +7,7 @@ export interface DoctorEntity {
     thumbnailImageUrl:string,
     briefDescription: string,
     addresses: DoctorAddress[];
+    services: MedicalServiceEntity[]
 }
 
 export interface MedicalServiceEntity{
