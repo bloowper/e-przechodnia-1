@@ -7,14 +7,14 @@
                 <button
                     #private (click)="privateVisit(private)"
                     mat-raised-button
-                    [matBadge]="isPrivateVisit? '+':''"
+                    [matBadge]="isPrivateVisit? '-':''"
                 >
                     Prywatnie
                 </button>
                 <button
                     #found (click)="nonPrivateVisit(found)"
                     mat-raised-button
-                    [matBadge]="isNfzVisit? '+':''"
+                    [matBadge]="isNfzVisit? '-':''"
                 >
                     Na fundusz
                 </button>
@@ -24,14 +24,14 @@
                     #evisit
                     (click)="eVisit(evisit)"
                     mat-raised-button
-                    [matBadge]="isEVisit? '+':''"
+                    [matBadge]="isEVisit? '-':''"
                 >
                     Wizyta zdalna
                 </button>
                 <button
                     #personal (click)="personalVisit(personal)"
                     mat-raised-button
-                    [matBadge]="isPersonal? '+':''"
+                    [matBadge]="isPersonal? '-':''"
                 >
                     Wizyta osobista
                 </button>
