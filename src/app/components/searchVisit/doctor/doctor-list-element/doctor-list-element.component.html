@@ -1,6 +1,6 @@
 
 <mat-card class="top" >
-    <img class="doctor-image"  [src]='doctorEntity.thumbnailImageUrl' alt="zdjecie lekarza">
+    <img class="doctor-image" (click)="redirect(doctorEntity.id)"  [src]='doctorEntity.thumbnailImageUrl' alt="zdjecie lekarza">
     <mat-card class="address-card">
         <mat-card-title>Adresy</mat-card-title>
         <mat-card-content class="addresy-flex">

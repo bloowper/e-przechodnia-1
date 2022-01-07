@@ -50,6 +50,8 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { DevpopupComponent } from './components/homepage/devpopup/devpopup.component';
 import {MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { DoctorDetailsComponent } from './components/searchVisit/doctor/doctor-details/doctor-details.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import {MatTableModule} from "@angular/material/table";
     MainDoctorPanelComponent,
     MainPatientPanelComponent,
     DevpopupComponent,
+    DoctorDetailsComponent,
   ],
     imports: [
         BrowserModule,
@@ -104,7 +107,8 @@ import {MatTableModule} from "@angular/material/table";
         ScrollingModule,
         MatDialogModule,
         MatListModule,
-        MatTableModule
+        MatTableModule,
+        MatDatepickerModule
     ],
   providers: [],
   bootstrap: [AppComponent]

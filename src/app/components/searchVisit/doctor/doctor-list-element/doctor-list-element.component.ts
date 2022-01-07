@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AddressType, DoctorEntity, MedicalServiceEntity} from "../../../../entities/DoctorEntity";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-doctor-list-element',
@@ -11,7 +12,7 @@ export class DoctorListElementComponent implements OnInit {
     medicalServiceColumns = ['name','price'];
     @Input() public doctorEntity: DoctorEntity;
 
-    constructor() {
+    constructor(public router:Router) {
         this.doctorEntity = {
             id: 1,
             firstName: 'Roman',
@@ -41,6 +42,14 @@ export class DoctorListElementComponent implements OnInit {
 
     isNormalVisit(type: AddressType) {
         return type === AddressType.NORMAL;
+    }
+
+    redirect(id: number) {
+
+        this.router.navigate(
+            ['/visits','search','doctor'],
+            {queryParams: {id:id}}
+        )
     }
 }
 
