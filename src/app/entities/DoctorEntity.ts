@@ -12,6 +12,7 @@ export interface DoctorEntity {
     specialties: String[]
     education:String[]
     treatedDiseases:String[]
+    patientAssessments: PatientAssessment[];
 }
 
 export interface MedicalServiceEntity{
@@ -21,7 +22,14 @@ export interface MedicalServiceEntity{
 
 export interface DoctorAddress {
     type:AddressType
-    information: string;
+    address: string;
+    moreInformation: string;
+}
+
+export interface PatientAssessment {
+    rating:number
+    patientNick:string
+    content:string
 }
 
 export enum AddressType {

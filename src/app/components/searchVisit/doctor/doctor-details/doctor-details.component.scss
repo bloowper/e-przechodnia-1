@@ -63,7 +63,10 @@ mat-spinner {
     margin-right: 5px;
 }
 
-a{
-    color: white;
-    display: block;
+.rating-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-gap: 1rem;
+    box-sizing: border-box;
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
@@ -58,6 +58,12 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { PopupComponent } from './components/shared/popup/popup.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { BarRatingModule } from "ngx-bar-rating";
+import {MatMenuModule} from "@angular/material/menu";
+import { RegisterVisitComponent } from './components/searchVisit/doctor/doctor-details/register-visit/register-visit.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from "@angular/material/radio";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -76,6 +82,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     DoctorDetailsComponent,
     NotFoundComponent,
     PopupComponent,
+    RegisterVisitComponent,
   ],
     imports: [
         BrowserModule,
@@ -120,7 +127,13 @@ import {MatExpansionModule} from "@angular/material/expansion";
         MatProgressSpinnerModule,
         MatChipsModule,
         MatTooltipModule,
-        MatExpansionModule
+        MatExpansionModule,
+        BarRatingModule,
+        MatMenuModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatRadioModule,
+        MatSlideToggleModule
     ],
   providers: [],
   bootstrap: [AppComponent]
