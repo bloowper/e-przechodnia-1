@@ -6,6 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;color: white
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import '~ngx-bar-rating/themes/br-default-theme';
 
 ::-webkit-scrollbar {
     width: 4px;

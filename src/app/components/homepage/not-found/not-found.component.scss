@@ -1,0 +1,23 @@
+.jumbotron {
+    background-image: url("https://wallpaperaccess.com/full/704430.jpg");
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 5px 5px 15px 5px rgba(0,0,0,0.5);
+    margin-top: -20px;
+}
+
+
+
+h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 1);
+}
+
+p{
+    font-size: 20px;
+    color: white;
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, 1);
+}

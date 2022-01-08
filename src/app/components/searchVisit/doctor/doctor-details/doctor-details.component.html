@@ -1,8 +1,9 @@
 <mat-spinner *ngIf="!loaded"></mat-spinner>
+<!--TODO rozbic to na mniejsze komponenty jak bedzie czas. ciezko sie tak pracuje-->
 <div *ngIf="loaded" class="top-container">
     <div  class="left-content" fxLayout="column" fxLayoutGap="20px">
         <!-- CARD-->
-        <mat-card  class="doctor-top-card" [class.mat-elevation-z5]="true" >
+        <mat-card  class="doctor-top-card">
             <!--doctor immage-->
             <img class="doctor-image" [src]="doctorEntity.thumbnailImageUrl" alt="zdjecie lekrza">
 
@@ -40,6 +41,7 @@
                 </mat-card-content>
             </mat-card>
         </mat-card>
+
         <mat-card>
             <mat-card-title>Adresy</mat-card-title>
             <mat-card-content>
@@ -62,8 +64,32 @@
                 </mat-tab-group>
             </mat-card-content>
         </mat-card>
+
+        <mat-card>
+            <mat-card-title>Ceny</mat-card-title>
+            <mat-card-content>
+                <mat-accordion >
+
+                    <!--education-->
+                    <mat-expansion-panel expanded="false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon color="accent" class="experience-icon">money</mat-icon>
+                                <p>
+                                    Ceny usług
+                                </p>
+                            </mat-panel-title>
+                            <mat-panel-description>Orientacyjne ceny usług</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div >
+
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-content>
+        </mat-card>
         <!-- CARD-->
-        <mat-card [class.mat-elevation-z5]="true">
+        <mat-card>
             <mat-card-title>
                 Moje doświadczenie
             </mat-card-title>
@@ -128,17 +154,46 @@
         <!-- CARD    -->
         <mat-card>
             <mat-card-title>
-                136 Opinie pacjentów
+                <mat-chip-list>
+                    <span>Opinie pacjentów</span>
+                    <mat-chip color="primary" selected>{{doctorEntity.patientAssessments.length}}</mat-chip>
+                </mat-chip-list>
             </mat-card-title>
             <mat-card-content>
-
+                <mat-form-field appearance="fill">
+                    <mat-label>Sortowanie opini</mat-label>
+                    <mat-select>
+                        <mat-option>None</mat-option>
+                        <mat-option value="option1">Data wystawienia malejąco</mat-option>
+                        <mat-option value="option2">Data wystawienia rosnąco</mat-option>
+                        <mat-option value="option3">Ocena malejąco</mat-option>
+                        <mat-option value="option4">Ocena rosnąco</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </mat-card-content>
+            <!--Rating-->
+            <mat-card-content class="rating-container">
+                <mat-card *ngFor="let a of doctorEntity.patientAssessments">
+                    <mat-card-title>
+                        <bar-rating [rate]="a.rating" [max]="6" [theme]="'default'"></bar-rating>
+                    </mat-card-title>
+                    <mat-card-content>
+                        <p>
+                            {{a.patientNick}}
+                        </p>
+                        <p>
+                            {{a.content}}
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-paginator hidePageSize="true"></mat-paginator>
+            </mat-card-actions>
         </mat-card>
     </div>
     <div class="right-content" >
-        <mat-card [class.mat-elevation-z5]="true">
-            <mat-card-title>Umów wizytę</mat-card-title>
-        </mat-card>
+        <app-register-visit></app-register-visit>
     </div>
 
 </div>

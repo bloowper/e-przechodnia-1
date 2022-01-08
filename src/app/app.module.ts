@@ -58,6 +58,9 @@ import {MatChipsModule} from "@angular/material/chips";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import { PopupComponent } from './components/shared/popup/popup.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { BarRatingModule } from "ngx-bar-rating";
+import {MatMenuModule} from "@angular/material/menu";
+import { RegisterVisitComponent } from './components/searchVisit/doctor/doctor-details/register-visit/register-visit.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +79,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     DoctorDetailsComponent,
     NotFoundComponent,
     PopupComponent,
+    RegisterVisitComponent,
   ],
     imports: [
         BrowserModule,
@@ -120,7 +124,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
         MatProgressSpinnerModule,
         MatChipsModule,
         MatTooltipModule,
-        MatExpansionModule
+        MatExpansionModule,
+        BarRatingModule,
+        MatMenuModule
     ],
   providers: [],
   bootstrap: [AppComponent]
