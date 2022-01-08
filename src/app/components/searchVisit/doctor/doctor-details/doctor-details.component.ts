@@ -16,6 +16,7 @@ export class DoctorDetailsComponent implements OnInit {
     // @ts-ignore
     public doctorEntity: DoctorEntity ;
     public doctorInFavorite = false;
+    public medicalServiceColumns = ['name','price'];
 
     constructor(private activatedRoute: ActivatedRoute,private router:Router, public doctorProviderService: DoctorProviderService,private matDialog: MatDialog) {
     }

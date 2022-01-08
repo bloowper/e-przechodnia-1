@@ -82,13 +82,28 @@
                             <mat-panel-description>Orientacyjne ceny usług</mat-panel-description>
                         </mat-expansion-panel-header>
                         <div >
+                            <table mat-table [dataSource]="doctorEntity!.services" style="width: 100%">
+                                <!-- name Column -->
+                                <ng-container matColumnDef="name">
+                                    <th mat-header-cell *matHeaderCellDef> Nazwa </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
 
+                                <!-- price Column -->
+                                <ng-container matColumnDef="price">
+                                    <th mat-header-cell *matHeaderCellDef> Cena </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.price}} PLN</td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="medicalServiceColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: medicalServiceColumns;"></tr>
+                            </table>
                         </div>
                     </mat-expansion-panel>
                 </mat-accordion>
             </mat-card-content>
         </mat-card>
-        <!-- CARD-->
+
         <mat-card>
             <mat-card-title>
                 Moje doświadczenie
@@ -147,11 +162,13 @@
                         <div>
                             ...
                         </div>
+
                     </mat-expansion-panel>
                 </mat-accordion>
             </mat-card-content>
         </mat-card>
-        <!-- CARD    -->
+
+
         <mat-card>
             <mat-card-title>
                 <mat-chip-list>
@@ -191,6 +208,7 @@
                 <mat-paginator hidePageSize="true"></mat-paginator>
             </mat-card-actions>
         </mat-card>
+
     </div>
     <div class="right-content" >
         <app-register-visit></app-register-visit>

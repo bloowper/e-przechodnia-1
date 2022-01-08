@@ -1,6 +1,55 @@
 <mat-card>
     <mat-card-title>Zarejestruj wizytę</mat-card-title>
     <mat-card-content>
-        <button mat-raised-button color="primary">przycisk udjacy proces rejestracji</button>
+        <mat-stepper orientation="vertical" [linear]="true">
+            <mat-step>
+                <ng-template matStepLabel>Wybierz adres wizyty</ng-template>
+                <div fxLayout="column">
+                    <mat-slide-toggle color="primary" class="margin-top" #slider>
+                        Online
+                    </mat-slide-toggle>
+                    <mat-form-field appearance="fill" *ngIf="!slider.checked">
+                        <mat-label>Miejsce wizyty</mat-label>
+                        <mat-select>
+                            <mat-option value="1">Adres a</mat-option>
+                            <mat-option value="2">Adres b</mat-option>
+                            <mat-option value="3">Adres c</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="margin-top">
+                    <button mat-raised-button matStepperNext >Dalej</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Wybierz typ usługi</ng-template>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Rodzaj usługi</mat-label>
+                    <mat-select>
+                        <mat-option value="1">Usługa a</mat-option>
+                        <mat-option value="2">Usługa b</mat-option>
+                        <mat-option value="3">Usługa c</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="margin-top">
+                    <button mat-raised-button matStepperPrevious>Cofnij</button>
+                    <button mat-raised-button matStepperNext>Dalej</button>
+                </div>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>Wybierz rodzaj płatności</ng-template>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Rodzaj płatności</mat-label>
+                    <mat-select>
+                        <mat-option value="1">Płatność a</mat-option>
+                        <mat-option value="2">Płatnoś b</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="margin-top">
+                    <button mat-raised-button matStepperPrevious>Cofnij</button>
+                    <button mat-raised-button (click)="approveVisit()">Zatwierdź</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
     </mat-card-content>
 </mat-card>
