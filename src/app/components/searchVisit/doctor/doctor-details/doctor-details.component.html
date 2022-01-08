@@ -1,7 +1,7 @@
 <mat-spinner *ngIf="!loaded"></mat-spinner>
 <div *ngIf="loaded" class="top-container">
     <div  class="left-content" fxLayout="column" fxLayoutGap="20px">
-        <!--TOP CARD-->
+        <!-- CARD-->
         <mat-card  class="doctor-top-card" [class.mat-elevation-z5]="true" >
             <!--doctor immage-->
             <img class="doctor-image" [src]="doctorEntity.thumbnailImageUrl" alt="zdjecie lekrza">
@@ -40,7 +40,29 @@
                 </mat-card-content>
             </mat-card>
         </mat-card>
-        <!--SECOND CARD-->
+        <mat-card>
+            <mat-card-title>Adresy</mat-card-title>
+            <mat-card-content>
+                <mat-tab-group mat-align-tabs="center">
+                    <mat-tab *ngFor="let addres of doctorEntity.addresses ">
+                        <ng-template mat-tab-label>
+                            <span *ngIf="!doctorProviderService.isNormalVisit(addres.type)">
+                                <mat-icon color="accent">switch_video</mat-icon>
+                                {{addres.address}}
+                            </span>
+                            <span *ngIf="doctorProviderService.isNormalVisit(addres.type)">
+                                <mat-icon color="accent" >home</mat-icon>
+                                {{addres.address}}
+                            </span>
+                        </ng-template>
+                        <h2>{{addres.address}}</h2>
+                        <p>{{addres.moreInformation}}</p>
+                    </mat-tab>
+
+                </mat-tab-group>
+            </mat-card-content>
+        </mat-card>
+        <!-- CARD-->
         <mat-card [class.mat-elevation-z5]="true">
             <mat-card-title>
                 Moje doświadczenie
@@ -103,11 +125,14 @@
                 </mat-accordion>
             </mat-card-content>
         </mat-card>
-        <!--THIRD CARD    -->
+        <!-- CARD    -->
         <mat-card>
             <mat-card-title>
                 136 Opinie pacjentów
             </mat-card-title>
+            <mat-card-content>
+
+            </mat-card-content>
         </mat-card>
     </div>
     <div class="right-content" >

@@ -21,7 +21,8 @@ export interface MedicalServiceEntity{
 
 export interface DoctorAddress {
     type:AddressType
-    information: string;
+    address: string;
+    moreInformation: string;
 }
 
 export enum AddressType {

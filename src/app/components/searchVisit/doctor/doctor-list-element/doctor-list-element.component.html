@@ -7,10 +7,10 @@
             <mat-tab-group color="accent">
                 <mat-tab *ngFor="let address of doctorEntity?.addresses; let i = index">
                     <ng-template mat-tab-label>
-                        <mat-icon color="accent" *ngIf="isEvisit(address.type)">switch_video</mat-icon>
-                        <mat-icon color="accent" *ngIf="isNormalVisit(address.type)">home</mat-icon>
+                        <mat-icon color="accent" *ngIf="!doctorProviderService.isNormalVisit(address.type)">switch_video</mat-icon>
+                        <mat-icon color="accent" *ngIf="doctorProviderService.isNormalVisit(address.type)">home</mat-icon>
                     </ng-template>
-                    {{address.information}}
+                    {{address.address}}
                 </mat-tab>
             </mat-tab-group>
         </mat-card-content>

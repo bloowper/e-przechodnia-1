@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AddressType, DoctorEntity, MedicalServiceEntity} from "../../../../entities/DoctorEntity";
 import {Router} from "@angular/router";
+import {DoctorProviderService} from "../../../../services/search/doctor-provider.service";
 
 @Component({
     selector: 'app-doctor-list-element',
@@ -12,7 +13,7 @@ export class DoctorListElementComponent implements OnInit {
     medicalServiceColumns = ['name','price'];
     @Input() public doctorEntity: DoctorEntity | undefined;
 
-    constructor(public router:Router) {
+    constructor(public router:Router,public doctorProviderService:DoctorProviderService) {
     }
 
     ngOnInit(): void {

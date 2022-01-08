@@ -17,7 +17,7 @@ export class DoctorDetailsComponent implements OnInit {
     public doctorEntity: DoctorEntity ;
     public doctorInFavorite = false;
 
-    constructor(private activatedRoute: ActivatedRoute,private router:Router, private doctorProviderService: DoctorProviderService,private matDialog: MatDialog) {
+    constructor(private activatedRoute: ActivatedRoute,private router:Router, public doctorProviderService: DoctorProviderService,private matDialog: MatDialog) {
     }
 
     ngOnInit(): void {
