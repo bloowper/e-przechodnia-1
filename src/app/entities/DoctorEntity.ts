@@ -1,13 +1,17 @@
 
 //for represent doctor in list of doctors
 export interface DoctorEntity {
-    id:number,
-    firstName:string,
-    lastName:string,
-    thumbnailImageUrl:string,
-    briefDescription: string,
-    addresses: DoctorAddress[];
+    id:number
+    firstName:string
+    lastName:string
+    thumbnailImageUrl:string
+    briefDescription: string
+    description: string
+    addresses: DoctorAddress[]
     services: MedicalServiceEntity[]
+    specialties: String[]
+    education:String[]
+    treatedDiseases:String[]
 }
 
 export interface MedicalServiceEntity{

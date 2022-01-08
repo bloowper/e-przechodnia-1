@@ -1,11 +1,11 @@
 
 <mat-card class="top" >
-    <img class="doctor-image" (click)="redirect(doctorEntity.id)"  [src]='doctorEntity.thumbnailImageUrl' alt="zdjecie lekarza">
+    <img class="doctor-image" [routerLink]="['/visits/search/doctor']" [queryParams]="{id:doctorEntity?.id}"  [src]='doctorEntity?.thumbnailImageUrl' alt="zdjecie lekarza">
     <mat-card class="address-card">
         <mat-card-title>Adresy</mat-card-title>
         <mat-card-content class="addresy-flex">
             <mat-tab-group color="accent">
-                <mat-tab *ngFor="let address of doctorEntity.addresses; let i = index">
+                <mat-tab *ngFor="let address of doctorEntity?.addresses; let i = index">
                     <ng-template mat-tab-label>
                         <mat-icon color="accent" *ngIf="isEvisit(address.type)">switch_video</mat-icon>
                         <mat-icon color="accent" *ngIf="isNormalVisit(address.type)">home</mat-icon>
@@ -16,9 +16,9 @@
         </mat-card-content>
     </mat-card>
     <mat-card class="about-me">
-        <mat-card-title style="cursor: pointer">{{doctorEntity.firstName}} {{doctorEntity.lastName}}</mat-card-title>
+        <mat-card-title [routerLink]="['/visits/search/doctor']" [queryParams]="{id:doctorEntity?.id}" style="cursor: pointer">{{doctorEntity?.firstName}} {{doctorEntity?.lastName}}</mat-card-title>
         <mat-card-content>
-            {{doctorEntity.briefDescription}}
+            {{doctorEntity?.briefDescription}}
         </mat-card-content>
     </mat-card>
     <mat-card class="more-information">
@@ -27,7 +27,7 @@
                 <ng-template mat-tab-label>
                     Cennik
                 </ng-template>
-                <table mat-table [dataSource]="doctorEntity.services" class="pricing">
+                <table mat-table [dataSource]="doctorEntity!.services" class="pricing">
                     <!-- name Column -->
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef> Nazwa </th>
@@ -55,11 +55,11 @@
                 <ng-template mat-tab-label>
                     Więcej o mnie
                 </ng-template>
-                not implemented
+                not implementedd
             </mat-tab>
         </mat-tab-group>
     </mat-card>
-    <mat-card class="calendar">
+    <mat-card class="calendar" [routerLink]="['/visits/search/doctor']" [queryParams]="{id:doctorEntity?.id}">
         <mat-card-title>Najbliższe terminy</mat-card-title>
         <mat-card-content>not implemented</mat-card-content>
     </mat-card>

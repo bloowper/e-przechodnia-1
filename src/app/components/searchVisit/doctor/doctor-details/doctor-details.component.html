@@ -1,1 +1,119 @@
-<p>doctor-details works!</p>
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+<div *ngIf="loaded" class="top-container">
+    <div  class="left-content" fxLayout="column" fxLayoutGap="20px">
+        <!--TOP CARD-->
+        <mat-card  class="doctor-top-card" [class.mat-elevation-z5]="true" >
+            <!--doctor immage-->
+            <img class="doctor-image" [src]="doctorEntity.thumbnailImageUrl" alt="zdjecie lekrza">
+
+            <!--short description-->
+            <mat-card class="brief-description">
+                <mat-card-title>
+                    {{doctorEntity.firstName}} {{doctorEntity.lastName}}
+                    <mat-icon *ngIf="!doctorInFavorite" (click)="addToFavorites()" style="cursor: pointer" color="accent"
+                              matTooltip="Dodaj lekarz do ulubionych">person_add_alt
+                    </mat-icon>
+                    <mat-icon *ngIf="doctorInFavorite" (click)="removeFromFavorites()" style="cursor: pointer" color="warn"
+                              matTooltip="Usuń lekarza z ulubionych">person_remove_alt
+                    </mat-icon>
+                </mat-card-title>
+                <mat-card-content>
+                    {{doctorEntity.briefDescription}}
+                </mat-card-content>
+            </mat-card>
+
+            <!--description-->
+            <mat-card class="description">
+                <mat-card-title>Więcej o mnie</mat-card-title>
+                <mat-card-content class="description-content">
+                    {{doctorEntity.description}}
+                </mat-card-content>
+            </mat-card>
+
+            <!--specialization-->
+            <mat-card class="specilization-list">
+                <mat-card-title>Specjalizacje</mat-card-title>
+                <mat-card-content>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let speciality of doctorEntity.specialties">{{speciality}}</mat-chip>
+                    </mat-chip-list>
+                </mat-card-content>
+            </mat-card>
+        </mat-card>
+        <!--SECOND CARD-->
+        <mat-card [class.mat-elevation-z5]="true">
+            <mat-card-title>
+                Moje doświadczenie
+            </mat-card-title>
+            <mat-card-content >
+                <mat-accordion >
+
+                    <!--education-->
+                    <mat-expansion-panel expanded="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon color="accent" class="experience-icon">school</mat-icon>
+                                <p>
+                                    Wykształcenie
+                                </p>
+                            </mat-panel-title>
+                            <mat-panel-description>Uczelnie, kursy</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div >
+                            <p *ngFor="let education of doctorEntity.education; let isLast =last">
+                                {{education}}
+                            </p>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <!--diseases-->
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon color="accent" class="experience-icon">sick</mat-icon>
+                                <p>
+                                    Leczone choroby
+                                </p>
+                            </mat-panel-title>
+                            <mat-panel-description>Choroby wyszczególnione przez lekarza</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div>
+                            <p style="cursor: pointer"
+                                *ngFor="let disease of doctorEntity.treatedDiseases">
+                                {{disease}}
+                            </p>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <!--images-->
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon color="accent" class="experience-icon">image</mat-icon>
+                                <p>
+                                    Zdjęcia
+                                </p>
+                            </mat-panel-title>
+                            <mat-panel-description>Wygląd lekarza, gabinetu etc</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div>
+                            ...
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-content>
+        </mat-card>
+        <!--THIRD CARD    -->
+        <mat-card>
+            <mat-card-title>
+                136 Opinie pacjentów
+            </mat-card-title>
+        </mat-card>
+    </div>
+    <div class="right-content" >
+        <mat-card [class.mat-elevation-z5]="true">
+            <mat-card-title>Umów wizytę</mat-card-title>
+        </mat-card>
+    </div>
+
+</div>

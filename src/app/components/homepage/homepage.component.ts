@@ -22,7 +22,10 @@ export class HomepageComponent implements OnInit, AfterViewInit {
         if (!this.memoryService.homepagePopupShowed) {
             this.matDialog.open(DevpopupComponent,
                 {
-                    width: '400px'
+                    width: '400px',
+                    data:{
+                        test: 'testing testing'
+                    }
                 });
             this.memoryService.homepagePopupShowed = true;
         }
