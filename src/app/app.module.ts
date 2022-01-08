@@ -52,6 +52,12 @@ import {MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DoctorDetailsComponent } from './components/searchVisit/doctor/doctor-details/doctor-details.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { NotFoundComponent } from './components/homepage/not-found/not-found.component';
+import {MatChipsModule} from "@angular/material/chips";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import { PopupComponent } from './components/shared/popup/popup.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -68,6 +74,8 @@ import { DoctorDetailsComponent } from './components/searchVisit/doctor/doctor-d
     MainPatientPanelComponent,
     DevpopupComponent,
     DoctorDetailsComponent,
+    NotFoundComponent,
+    PopupComponent,
   ],
     imports: [
         BrowserModule,
@@ -108,7 +116,11 @@ import { DoctorDetailsComponent } from './components/searchVisit/doctor/doctor-d
         MatDialogModule,
         MatListModule,
         MatTableModule,
-        MatDatepickerModule
+        MatDatepickerModule,
+        MatProgressSpinnerModule,
+        MatChipsModule,
+        MatTooltipModule,
+        MatExpansionModule
     ],
   providers: [],
   bootstrap: [AppComponent]

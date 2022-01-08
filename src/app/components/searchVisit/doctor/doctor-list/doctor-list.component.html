@@ -1,6 +1,8 @@
-<div fxLayout="column" fxLayoutGap="40px">
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+<div *ngIf="loaded" fxLayout="column" fxLayoutGap="40px">
     <app-doctor-list-element
         *ngFor="let i of [1,2,3,4,5]"
+        [doctorEntity]="doctors[0]"
     ></app-doctor-list-element>
     <mat-paginator></mat-paginator>
 </div>
