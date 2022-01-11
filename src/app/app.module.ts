@@ -64,6 +64,7 @@ import { RegisterVisitComponent } from './components/searchVisit/doctor/doctor-d
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { PrescriptionListComponent } from './components/panels/patient/prescription-list/prescription-list.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     NotFoundComponent,
     PopupComponent,
     RegisterVisitComponent,
+    PrescriptionListComponent,
   ],
     imports: [
         BrowserModule,

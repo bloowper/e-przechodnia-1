@@ -1,0 +1,60 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-size: 40px;
+    border-bottom:2px solid rgb(182, 182, 182);
+    text-align: center;
+    margin: 0 10% 30px 10%;
+}
+
+h2{
+    font-size: 40px;
+    border-bottom:2px solid rgb(182, 182, 182);
+    text-align: center;
+    margin: 0 10% 30px 10%;
+}
+
+#info{
+    line-height: 25px;
+    margin: 0 10% 30px 10%;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#list{
+    border-style: solid;
+    border-radius: 50px;
+    border-color: rgb(182, 182, 182);
+    border-width: 2px;
+
+    line-height: 100px;
+    margin: 0 10% 30px 10%;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+}
+
+#list:hover{
+    background-color: rgb(209, 206, 206);
+    -webkit-transition: all 2s ease ;
+    transition: all 2s ease;
+}
+
+mat-card-content {
+    margin: 0 10% 30px 10%;
+    font-size: 20px;
+}
+
+button {
+    font-size: 20px;
+}
