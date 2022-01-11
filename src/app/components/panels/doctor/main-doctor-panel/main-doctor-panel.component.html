@@ -1,1 +1,9 @@
-<p>main-doctor-panel works!</p>
+<section>
+    <article>
+        <h2>Witaj Doktorze!</h2>
+        <h4>Twoje wizyty</h4>
+        <ul id="list" *ngFor="let visit of visits">
+            <p>{{visit.name}}</p>
+        </ul>
+    </article>
+</section>
