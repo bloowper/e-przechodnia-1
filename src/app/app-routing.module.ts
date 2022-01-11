@@ -9,6 +9,7 @@ import {MainDoctorPanelComponent} from "./components/panels/doctor/main-doctor-p
 import {MainPatientPanelComponent} from "./components/panels/patient/main-patient-panel/main-patient-panel.component";
 import {DoctorDetailsComponent} from "./components/searchVisit/doctor/doctor-details/doctor-details.component";
 import {NotFoundComponent} from "./components/homepage/not-found/not-found.component";
+import {PrescriptionListComponent} from "./components/panels/patient/prescription-list/prescription-list.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'register', component: SignUpComponent},
     {path: 'doctorPanel',component: MainDoctorPanelComponent,},
     {path: 'patientPanel', component: MainPatientPanelComponent},
+    {path: 'prescriptionList', component: PrescriptionListComponent},
     {path: '**' ,redirectTo:'notfound', pathMatch: 'full'}
 ];
 
