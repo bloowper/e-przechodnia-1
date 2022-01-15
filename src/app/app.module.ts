@@ -65,6 +65,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { PrescriptionListComponent } from './components/panels/patient/prescription-list/prescription-list.component';
+import { SideNavComponent } from './components/shared/side-nav/side-nav.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { PrescriptionListComponent } from './components/panels/patient/prescript
     PopupComponent,
     RegisterVisitComponent,
     PrescriptionListComponent,
+    SideNavComponent,
   ],
     imports: [
         BrowserModule,
