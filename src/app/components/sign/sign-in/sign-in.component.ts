@@ -28,6 +28,8 @@ export class SignInComponent implements OnInit {
             }
         }, error => {
             console.log(`Error while submit login ${error}`)
+
+            form.reset();
             error = true;
         });
     }
