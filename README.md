@@ -7,7 +7,7 @@ Needed depedencies to install: npm, nodejs
 * `ng server`
 * go to browser and `http://localhost:4200/`
 
-# EcommerceV2
+# E-przychodnia projekt uczelniany(dużo anty wzorców)
 ## Działające konta użytkownikow
 * {authority: DOCTOR, email: "doktor@example.com", password: "password", id: 1}
 * {authority: PATIENT, email: "pacjent@example.com", password: "password", id: 2}
