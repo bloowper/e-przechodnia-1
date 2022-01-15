@@ -1,28 +1,30 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DoctorEntity} from "../../../../entities/DoctorEntity";
 import {DoctorProviderService} from "../../../../services/search/doctor-provider.service";
 import {MatDialog} from "@angular/material/dialog";
 import {PopupComponent} from "../../../shared/popup/popup.component";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: 'app-doctor-details',
     templateUrl: './doctor-details.component.html',
     styleUrls: ['./doctor-details.component.scss']
 })
-export class DoctorDetailsComponent implements OnInit {
+export class DoctorDetailsComponent implements OnInit,OnDestroy {
 
     loaded = false;
     // @ts-ignore
     public doctorEntity: DoctorEntity ;
     public doctorInFavorite = false;
     public medicalServiceColumns = ['name','price'];
+    private queryParamsSubscription: Subscription | undefined;
 
     constructor(private activatedRoute: ActivatedRoute,private router:Router, public doctorProviderService: DoctorProviderService,private matDialog: MatDialog) {
     }
 
     ngOnInit(): void {
-        var subscription = this.activatedRoute.queryParams.subscribe((params: Params) => {
+        this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe((params: Params) => {
             this.loaded = false;
             var doctorId = Number(params['id']);
             if (doctorId === undefined) {
@@ -39,8 +41,13 @@ export class DoctorDetailsComponent implements OnInit {
                     });
             }
         });
-        subscription.unsubscribe();
     }
+
+    ngOnDestroy(): void {
+        this.queryParamsSubscription?.unsubscribe();
+    }
+
+
 
     addToFavorites() {
         this.matDialog.open(PopupComponent,

@@ -4,6 +4,8 @@ import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {Subscription} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {PopupComponent} from "../../shared/popup/popup.component";
 
 @Component({
     selector: 'app-sign-in',
@@ -13,11 +15,19 @@ import {Subscription} from "rxjs";
 export class SignInComponent implements OnInit,OnDestroy {
     private subscription: Subscription|undefined;
 
-    constructor(public authenticationService: AuthenticationService,private router:Router,private toastr: ToastrService) {
+    constructor(public authenticationService: AuthenticationService,private router:Router,private toastr: ToastrService,private matDialog: MatDialog) {
 
     }
 
     ngOnInit(): void {
+        this.matDialog.open(PopupComponent,
+            {
+                width: '400px',
+                data:{
+                    title: 'Testowe konta',
+                    content: '[DOCTOR, email: "doktor@example.com", password: "password"][PATIENT, email: "pacjent@example.com", password: "password"]'
+                }
+            });
     }
 
     ngOnDestroy(): void {

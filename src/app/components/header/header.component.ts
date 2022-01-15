@@ -3,6 +3,7 @@ import {AuthenticationService} from "../../services/authentication/authenticatio
 import {AuthEntity} from "../../entities/AuthEntity";
 import {UserType} from "../../entities/UserType";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
     authenticationService: AuthenticationService
 
-    constructor(authenticationService: AuthenticationService,private router:Router) {
+    constructor(authenticationService: AuthenticationService,private router:Router,private toastr: ToastrService) {
         this.authenticationService = authenticationService;
     }
 
@@ -26,5 +27,6 @@ export class HeaderComponent implements OnInit {
     logout() {
         this.authenticationService.auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
         this.router.navigate(['/'])
+        this.toastr.success("Poprawnie wylogowano użytkownika","Wylogowanie")
     }
 }
