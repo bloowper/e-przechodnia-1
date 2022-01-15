@@ -4,6 +4,7 @@ import {AuthenticationService} from "../../services/authentication/authenticatio
 import {MatDialog} from "@angular/material/dialog";
 import {DevpopupComponent} from "./devpopup/devpopup.component";
 import {SessionMemoryService} from "../../services/utils/session-memory.service";
+import {PopupComponent} from "../shared/popup/popup.component";
 
 @Component({
     selector: 'app-homepage',
@@ -20,11 +21,12 @@ export class HomepageComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit(): void {
         if (!this.memoryService.homepagePopupShowed) {
-            this.matDialog.open(DevpopupComponent,
+            this.matDialog.open(PopupComponent,
                 {
                     width: '400px',
                     data:{
-                        test: 'testing testing'
+                        title: 'Development',
+                        content: 'Strona nie jest responsywna'
                     }
                 });
             this.memoryService.homepagePopupShowed = true;

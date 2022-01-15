@@ -10,6 +10,11 @@ import {MainPatientPanelComponent} from "./components/panels/patient/main-patien
 import {DoctorDetailsComponent} from "./components/searchVisit/doctor/doctor-details/doctor-details.component";
 import {NotFoundComponent} from "./components/homepage/not-found/not-found.component";
 import {PrescriptionListComponent} from "./components/panels/patient/prescription-list/prescription-list.component";
+import {VisitListComponent} from "./components/panels/patient/visit-list/visit-list.component";
+import {
+    DoctorPrescriptionListComponent
+} from "./components/panels/doctor/doctor-prescription-list/doctor-prescription-list.component";
+import {DoctorVisitListComponent} from "./components/panels/doctor/doctor-visit-list/doctor-visit-list.component";
 
 
 const routes: Routes = [
@@ -21,9 +26,25 @@ const routes: Routes = [
     {path: 'visits/search/doctor', component: DoctorDetailsComponent},
     {path: 'login', component: SignInComponent},
     {path: 'register', component: SignUpComponent},
-    {path: 'doctorPanel',component: MainDoctorPanelComponent,},
-    {path: 'patientPanel', component: MainPatientPanelComponent},
-    {path: 'prescriptionList', component: PrescriptionListComponent},
+    {path: 'doctorPanel',component: MainDoctorPanelComponent,
+        children:[
+            {path: '', redirectTo: 'prescriptions', pathMatch: 'full'},
+            {path: 'visits',component: DoctorVisitListComponent},
+            {path: 'prescriptions',component: DoctorPrescriptionListComponent}
+        ]
+    },
+    {path: 'patientPanel', component: MainPatientPanelComponent,
+        children:[
+            {path: '' ,redirectTo:'prescriptions',pathMatch:'full'},
+            {path: 'prescriptions', component: PrescriptionListComponent},
+            //tutaj mozesz dodac prescriptions/:id np
+            {path: 'visits', component: VisitListComponent}
+        ]
+    },
+
+
+
+    //not found musi byc ostatni
     {path: '**' ,redirectTo:'notfound', pathMatch: 'full'}
 ];
 

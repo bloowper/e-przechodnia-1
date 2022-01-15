@@ -1,8 +1,20 @@
+<mat-sidenav-container>
+    <mat-sidenav opened="true" mode="side">
+        <mat-nav-list>
+            <mat-list-item  routerLink="/patientPanel/prescriptions"  routerLinkActive="list-item-active">
+                Recepty
+            </mat-list-item>
+            <mat-list-item  routerLink="/patientPanel/visits" routerLinkActive="list-item-active">
+                Wizyty
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!--router outlet czyli tutaj wyswietli sie zawrartosc child routingu-->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
-<p> Sprawdź swoje recepty:
-    <button mat-raised-button color="primary" routerLink="/prescriptionList">Przejdź dalej</button>
-</p>
 
-<p> Sprawdź swoje wizyty:
-    <button mat-raised-button color="primary">Coming soon</button>
-</p>
+
+
