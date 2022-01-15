@@ -70,6 +70,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { VisitListComponent } from './components/panels/patient/visit-list/visit-list.component';
 import { DoctorPrescriptionListComponent } from './components/panels/doctor/doctor-prescription-list/doctor-prescription-list.component';
 import { DoctorVisitListComponent } from './components/panels/doctor/doctor-visit-list/doctor-visit-list.component';
+import {ToastContainerModule, ToastrModule, ToastrService} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -145,7 +146,15 @@ import { DoctorVisitListComponent } from './components/panels/doctor/doctor-visi
         ReactiveFormsModule,
         MatRadioModule,
         MatSlideToggleModule,
-        MatSidenavModule
+        MatSidenavModule,
+        ToastrModule.forRoot({
+            timeOut: 3000,
+            progressBar: true,
+            progressAnimation: "increasing",
+            positionClass: 'inline'
+        }),
+        ToastContainerModule
+
     ],
   providers: [],
   bootstrap: [AppComponent]

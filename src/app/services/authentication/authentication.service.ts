@@ -1,19 +1,20 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import {UserType} from "../../entities/UserType";
 import {AuthEntity} from "../../entities/AuthEntity";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService implements OnDestroy{
 
     mockUsers: mockUser[] = [
         {authority: UserType.DOCTOR, email: "doktor@example.com", password: "password", id: 1},
         {authority: UserType.PATIENT, email: "pacjent@example.com", password: "password", id: 2}
     ]
 
-    public authObservable$ = new BehaviorSubject<AuthEntity|null>(null);
+    authObservable$ = new Subject<AuthEntity>();
+
     private _auth: AuthEntity;
 
     constructor() {
@@ -52,17 +53,29 @@ export class AuthenticationService {
     }
 
 
-    login(email: string, password: string) {
-        console.log(`email ${email} password ${password}`)
-        var find:mockUser|undefined = this.mockUsers.find(value => value.email == email);
-        if (find != undefined && find.password === password) {
-            var authEntity = new AuthEntity("TOKEN", find.authority, find.email, find.id);
-            localStorage.setItem("auth", JSON.stringify(authEntity));
-            this.auth = authEntity;
-            this.authObservable$.next(authEntity);
-        } else {
-            this.authObservable$.error(new Error("Nieprawidłowe dane"))
-        }
+    login(email:string, password:string): Observable<AuthEntity> {
+        return new Observable(subscriber => {
+            this._auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
+            setTimeout(()=>{
+                var find:mockUser|undefined = this.mockUsers.find(value => value.email == email && value.password == password);
+                if (find != undefined) {
+                    console.log("AuthenticationService user found")
+                    var authEntity = new AuthEntity("TOKEN",find.authority,find.email,find.id);
+                    this.auth = authEntity;
+                    subscriber.next(authEntity);
+                    subscriber.complete();
+                } else {
+                    console.log("AuthenticationService user not found")
+                    subscriber.error("User not found")
+                    subscriber.complete();
+                }
+            },250);
+        });
+    }
+
+    ngOnDestroy(): void {
+        console.log("AuthenticationService: user not exist: observable complete")
+        this.authObservable$.complete();
     }
 }
 
