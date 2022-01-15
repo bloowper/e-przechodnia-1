@@ -25,8 +25,8 @@ export class HomepageComponent implements OnInit, AfterViewInit {
                 {
                     width: '400px',
                     data:{
-                        title: 'Development',
-                        content: 'Strona nie jest responsywna'
+                        title: 'Early-development',
+                        content: 'Strona nie jest responsywna. Prosimy o nie odświeżanie  strony, nie korzystamy z backendu tylko lokalnego storagu ktory zostanie rowniez zresetowany w przypadku odświeżenia (f5)'
                     }
                 });
             this.memoryService.homepagePopupShowed = true;
