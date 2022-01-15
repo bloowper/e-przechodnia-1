@@ -1,9 +1,17 @@
-<section>
-    <article>
-        <h2>Witaj Doktorze!</h2>
-        <h4>Twoje wizyty</h4>
-        <ul id="list" *ngFor="let visit of visits">
-            <p>{{visit.name}}</p>
-        </ul>
-    </article>
-</section>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" mode="side" (closed)="sidenav.opened=true">
+        <mat-nav-list>
+            <mat-list-item  routerLink="/doctorPanel/visits"  routerLinkActive="list-item-active">
+                Wizyty
+            </mat-list-item>
+            <mat-list-item  routerLink="/doctorPanel/prescriptions" routerLinkActive="list-item-active">
+                Recepty
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <!--router outlet czyli tutaj wyswietli sie zawrartosc child routingu-->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

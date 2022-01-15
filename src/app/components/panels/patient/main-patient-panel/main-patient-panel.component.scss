@@ -1,9 +1,19 @@
-p {
-    margin: 0 10% 30px 10%;
-    font-size: 20px;
-    text-decoration: none;
+
+
+mat-sidenav-container {
+    min-height: 100vh;
+}
+mat-sidenav{
+    border-right:none;
+
+}
+mat-sidenav {
+    width: 200px;
 }
 
-button {
-    font-size: 20px;
+.list-item-active {
+    color: #69f0ae;
+}
+mat-sidenav-content{
+    padding: 25px;
 }
