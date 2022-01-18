@@ -1,17 +1,17 @@
-<section>
-    <article>
-        <h1 style="margin-left: 5%;">
+    <mat-card>
+        <mat-card-title style="margin-left: 5%;margin-top: 5%">
             Recepty
-        </h1>
-        <ul id="info">
+        </mat-card-title>
+        <mat-card-content id="info">
             Teraz wszystkie swoje recepty masz w jednym miejscu! Wygodnie przeglądaj
             całą historię przypisanych Tobie recept, po kliknięciu w "szczegóły" wyświetlą Ci się
             dodatkowe informacje dotyczące wybranej recepty.
-        </ul>
+        </mat-card-content>
 
-        <h2  style="margin-left: 5%;">
-            Wyszukaj recepte
-        </h2>
+        <mat-card-title  style="margin-left: 5%;margin-top: 5%">
+            Twoja lista recept
+        </mat-card-title>
+
         <!--------sortowanie recept--------->
         <mat-card-content fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start center" class="margin-bottom">
             <mat-form-field appearance="fill" >
@@ -24,11 +24,10 @@
         </mat-card-content>
 
         <!--------lista_recept--------->
-        <ul id="list" *ngFor="let medicine of medicines">
-            <p>{{medicine.name}}
+        <mat-list id="list" *ngFor="let medicine of medicines">
+            <mat-list-item>{{medicine.name}}
                 <button mat-raised-button color="primary">Zobacz szczegóły</button>
-            </p>
-        </ul>
+            </mat-list-item>
+        </mat-list>
 
-    </article>
-</section>
+    </mat-card>

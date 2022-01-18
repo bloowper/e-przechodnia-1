@@ -5,25 +5,6 @@
     box-sizing: border-box;
 }
 
-
-a{
-    text-decoration: none;
-}
-
-h1{
-    font-size: 40px;
-    border-bottom:2px solid rgb(182, 182, 182);
-    text-align: center;
-    margin: 0 10% 30px 10%;
-}
-
-h2{
-    font-size: 40px;
-    border-bottom:2px solid rgb(182, 182, 182);
-    text-align: center;
-    margin: 0 10% 30px 10%;
-}
-
 #info{
     line-height: 25px;
     margin: 0 10% 30px 10%;
@@ -31,17 +12,14 @@ h2{
     text-decoration: none;
 }
 
-#list{
+mat-list {
     border-style: solid;
     border-radius: 50px;
     border-color: rgb(182, 182, 182);
     border-width: 2px;
 
-    line-height: 100px;
     margin: 0 10% 30px 10%;
     display: block;
-    font-size: 20px;
-    text-align: center;
 }
 
 #list:hover{
@@ -56,5 +34,6 @@ mat-card-content {
 }
 
 button {
-    font-size: 20px;
+    font-size: 15px;
+    margin-left: 2%;
 }
