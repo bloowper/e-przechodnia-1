@@ -1,0 +1,52 @@
+
+
+<mat-card class="top-container">
+    <div class="actions" fxLayout="column" fxLayoutGap="5px">
+        <button mat-raised-button color="primary" (click)="cancel()">Odwołaj</button>
+        <button mat-raised-button color="primary" disabled="true">Zapłać</button>
+        <button mat-raised-button color="primary" disabled="true">Przełóż</button>
+        <button mat-raised-button color="primary" disabled="true">Szczegóły</button>
+
+    </div>
+    <mat-card class="visit-information">
+        <mat-card-title>
+            Dane wizyty
+        </mat-card-title>
+        <mat-card-content>
+            <p>
+                <span class="bold">Data: </span>
+                {{appointment.date| date:'W-L-y h:mm'}}
+            </p>
+            <p>
+                <span class="bold">Dane adresowe: </span>
+                {{appointment.doctorAddress.address}}
+            </p>
+            <p>
+                <span class="bold">Typ: </span>
+                {{appointment.medicalServiceEntity.name}}
+            </p>
+            <p>
+                <span class="bold">Koszt: </span>
+                {{appointment.medicalServiceEntity.price}} pln
+            </p>
+            <p>
+                <span class="bold">Typ płatności</span>
+                {{appointment.paymentType}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="doctor-information">
+        <mat-card-title
+            [routerLink]="['/visits/search/doctor']"
+            [queryParams]="{id:appointment.doctor.id}"
+            matTooltip="Przejdz na profil lekarza"
+            style="cursor: pointer"
+        >
+            Lekarz: {{appointment.doctor.firstName +" "+ appointment.doctor.lastName}}
+        </mat-card-title>
+        <mat-card-content>
+            <h3 class="bold">Zalecenia przed wizytą</h3>
+            {{appointment.recommendations}}
+        </mat-card-content>
+    </mat-card>
+</mat-card>
