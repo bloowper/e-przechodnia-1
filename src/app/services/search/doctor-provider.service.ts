@@ -7,7 +7,8 @@ import {Observable} from "rxjs";
 })
 export class DoctorProviderService {
 
-    fetchedDoctors: DoctorEntity[]
+    //try to not use by not using getters setters
+    public fetchedDoctors: DoctorEntity[]
 
     constructor() {
         this.fetchedDoctors = [
@@ -97,8 +98,10 @@ export class DoctorProviderService {
             setTimeout(() => {
                 if (doctorEntity != null) {
                     subscriber.next(doctorEntity);
+                    subscriber.complete();
                 } else {
                     subscriber.error(new Error(`Nie znaleziono lekarza o podanym id = ${doctorId}`))
+                    subscriber.complete();
                 }
             }, 500);
         })

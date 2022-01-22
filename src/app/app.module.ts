@@ -72,6 +72,8 @@ import { DoctorPrescriptionListComponent } from './components/panels/doctor/doct
 import { DoctorVisitListComponent } from './components/panels/doctor/doctor-visit-list/doctor-visit-list.component';
 import {ToastContainerModule, ToastrModule, ToastrService} from "ngx-toastr";
 import { FavoriteDoctorListComponent } from './components/panels/patient/favorite-doctor-list/favorite-doctor-list.component';
+import { VisitElementComponent } from './components/panels/patient/visit-list/visit-element/visit-element.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
 
 @NgModule({
   declarations: [
@@ -97,6 +99,7 @@ import { FavoriteDoctorListComponent } from './components/panels/patient/favorit
     DoctorPrescriptionListComponent,
     DoctorVisitListComponent,
     FavoriteDoctorListComponent,
+    VisitElementComponent,
   ],
     imports: [
         BrowserModule,
@@ -155,7 +158,8 @@ import { FavoriteDoctorListComponent } from './components/panels/patient/favorit
             progressAnimation: "increasing",
             positionClass: 'inline'
         }),
-        ToastContainerModule
+        ToastContainerModule,
+        MatButtonToggleModule
 
     ],
   providers: [],

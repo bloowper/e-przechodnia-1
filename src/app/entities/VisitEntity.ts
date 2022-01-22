@@ -1,5 +1,7 @@
 
 //for represent visit in list of visits
+import {AddressType} from "./DoctorEntity"; // DRY : don't repeat yourself
+
 export interface VisitEntity {
     id:number
     date: Date[]
@@ -42,7 +44,3 @@ export interface PatientAssessment {
     lastName: string
 }
 
-export enum AddressType {
-    EVISIT,
-    NORMAL
-}

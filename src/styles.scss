@@ -20,3 +20,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: #69f0ae;
     border-radius: 10px;
 }
+
+mat-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: scale(1);
+}
