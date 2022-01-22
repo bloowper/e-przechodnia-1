@@ -15,6 +15,9 @@ import {
     DoctorPrescriptionListComponent
 } from "./components/panels/doctor/doctor-prescription-list/doctor-prescription-list.component";
 import {DoctorVisitListComponent} from "./components/panels/doctor/doctor-visit-list/doctor-visit-list.component";
+import {
+    FavoriteDoctorListComponent
+} from "./components/panels/patient/favorite-doctor-list/favorite-doctor-list.component";
 
 
 const routes: Routes = [
@@ -37,8 +40,8 @@ const routes: Routes = [
         children:[
             {path: '' ,redirectTo:'prescriptions',pathMatch:'full'},
             {path: 'prescriptions', component: PrescriptionListComponent},
-            //tutaj mozesz dodac prescriptions/:id np
-            {path: 'visits', component: VisitListComponent}
+            {path: 'visits', component: VisitListComponent},
+            {path: 'favouritedoctors', component: FavoriteDoctorListComponent}
         ]
     },
 

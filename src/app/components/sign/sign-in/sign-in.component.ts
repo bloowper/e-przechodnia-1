@@ -20,6 +20,13 @@ export class SignInComponent implements OnInit,OnDestroy {
     }
 
     ngOnInit(): void {
+        this.help();
+    }
+
+    ngOnDestroy(): void {
+    }
+
+    help() {
         this.matDialog.open(PopupComponent,
             {
                 width: '400px',
@@ -29,10 +36,6 @@ export class SignInComponent implements OnInit,OnDestroy {
                 }
             });
     }
-
-    ngOnDestroy(): void {
-    }
-
 
     onSubmit(form: NgForm) {
         this.authenticationService.login(form.value.email, form.value.password).subscribe(value => {

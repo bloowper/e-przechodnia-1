@@ -5,22 +5,30 @@ import {DoctorProviderService} from "../../../../services/search/doctor-provider
 import {MatDialog} from "@angular/material/dialog";
 import {PopupComponent} from "../../../shared/popup/popup.component";
 import {Subscription} from "rxjs";
+import {FavoriteDoctorService} from "../../../../services/patient/favorite-doctor.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
     selector: 'app-doctor-details',
     templateUrl: './doctor-details.component.html',
     styleUrls: ['./doctor-details.component.scss']
 })
-export class DoctorDetailsComponent implements OnInit,OnDestroy {
+export class DoctorDetailsComponent implements OnInit, OnDestroy {
 
     loaded = false;
     // @ts-ignore
-    public doctorEntity: DoctorEntity ;
-    public doctorInFavorite = false;
-    public medicalServiceColumns = ['name','price'];
+    public doctorEntity: DoctorEntity;
+    public medicalServiceColumns = ['name', 'price'];
     private queryParamsSubscription: Subscription | undefined;
 
-    constructor(private activatedRoute: ActivatedRoute,private router:Router, public doctorProviderService: DoctorProviderService,private matDialog: MatDialog) {
+    constructor(private activatedRoute: ActivatedRoute,
+                private router: Router,
+                public doctorProviderService: DoctorProviderService,
+                private matDialog: MatDialog,
+                public favoriteDoctorService: FavoriteDoctorService,
+                private toastr: ToastrService
+    ) {
+
     }
 
     ngOnInit(): void {
@@ -48,20 +56,11 @@ export class DoctorDetailsComponent implements OnInit,OnDestroy {
     }
 
 
-
     addToFavorites() {
-        this.matDialog.open(PopupComponent,
-            {
-                width: '400px',
-                data:{
-                    title: 'Udało się',
-                    content: 'Dodano lekarza do ulubionych, znajdziesz go na liście w twoim panelu użytkownika'
-                }
-            });
-        this.doctorInFavorite = true;
+        this.favoriteDoctorService.addToFavorite(this.doctorEntity.id);
     }
 
     removeFromFavorites() {
-        this.doctorInFavorite = false;
+        this.favoriteDoctorService.removeFromFavorite(this.doctorEntity.id);
     }
 }

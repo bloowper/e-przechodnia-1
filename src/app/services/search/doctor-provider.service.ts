@@ -112,4 +112,29 @@ export class DoctorProviderService {
         }
     }
 
+    getDoctorsById(doctorsId:Set<number>):Observable<DoctorEntity[]>{
+        return new Observable(subscriber => {
+            let doctors: DoctorEntity[] = [];
+            for (let fetchedDoctor of this.fetchedDoctors) {
+                if (doctorsId.has(fetchedDoctor.id)) {
+                    doctors.push(fetchedDoctor);
+                }
+            }
+            setTimeout(() => {
+                subscriber.next(doctors);
+                subscriber.complete();
+            }, 500);
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

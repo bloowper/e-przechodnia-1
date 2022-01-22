@@ -71,6 +71,7 @@ import { VisitListComponent } from './components/panels/patient/visit-list/visit
 import { DoctorPrescriptionListComponent } from './components/panels/doctor/doctor-prescription-list/doctor-prescription-list.component';
 import { DoctorVisitListComponent } from './components/panels/doctor/doctor-visit-list/doctor-visit-list.component';
 import {ToastContainerModule, ToastrModule, ToastrService} from "ngx-toastr";
+import { FavoriteDoctorListComponent } from './components/panels/patient/favorite-doctor-list/favorite-doctor-list.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import {ToastContainerModule, ToastrModule, ToastrService} from "ngx-toastr";
     VisitListComponent,
     DoctorPrescriptionListComponent,
     DoctorVisitListComponent,
+    FavoriteDoctorListComponent,
   ],
     imports: [
         BrowserModule,

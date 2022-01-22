@@ -13,12 +13,12 @@ export class AuthenticationService implements OnDestroy{
         {authority: UserType.PATIENT, email: "pacjent@example.com", password: "password", id: 2}
     ]
 
-    authObservable$ = new Subject<AuthEntity>();
-
     private _auth: AuthEntity;
 
+    private readonly local_storage_auth = 'auth';
+
     constructor() {
-        var storageData = localStorage.getItem('auth');
+        var storageData = localStorage.getItem(this.local_storage_auth);
         if (storageData != null) {
             var parse = JSON.parse(storageData);
             this._auth = new AuthEntity(parse['token'], parse['authority'], parse['email'], parse['id']);
@@ -63,6 +63,7 @@ export class AuthenticationService implements OnDestroy{
                     var authEntity = new AuthEntity("TOKEN",find.authority,find.email,find.id);
                     this.auth = authEntity;
                     subscriber.next(authEntity);
+                    localStorage.setItem(this.local_storage_auth, JSON.stringify(authEntity));
                     subscriber.complete();
                 } else {
                     console.log("AuthenticationService user not found")
@@ -74,8 +75,7 @@ export class AuthenticationService implements OnDestroy{
     }
 
     ngOnDestroy(): void {
-        console.log("AuthenticationService: user not exist: observable complete")
-        this.authObservable$.complete();
+        console.log("AuthenticationService: destroy")
     }
 }
 
