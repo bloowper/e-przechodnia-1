@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {Router} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'app-visit-search',
@@ -8,6 +9,8 @@ import {Router} from "@angular/router";
     styleUrls: ['./visit-search.component.scss']
 })
 export class VisitSearchComponent implements OnInit {
+
+    isFormValid = true;
 
     isPrivateVisit = false;
     isNfzVisit = false;
@@ -71,7 +74,20 @@ export class VisitSearchComponent implements OnInit {
         }
     }
 
-    search() {
+
+    isValid() {
+        if (
+            (this.isPrivateVisit || this.isNfzVisit) &&
+            (this.isEVisit || this.isPersonal)
+        ) {
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    onSubmit(form: NgForm) {
+
         this.router.navigate(['/','visits','search'])
     }
 }

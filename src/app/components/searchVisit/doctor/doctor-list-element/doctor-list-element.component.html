@@ -16,7 +16,19 @@
         </mat-card-content>
     </mat-card>
     <mat-card class="about-me">
-        <mat-card-title [routerLink]="['/visits/search/doctor']" [queryParams]="{id:doctorEntity?.id}" style="cursor: pointer">{{doctorEntity?.firstName}} {{doctorEntity?.lastName}}</mat-card-title>
+        <mat-card-title>
+            <div>
+                <span [routerLink]="['/visits/search/doctor']" [queryParams]="{id:doctorEntity?.id}" style="cursor: pointer">
+                {{doctorEntity?.firstName}} {{doctorEntity?.lastName}}
+                </span>
+                <mat-icon *ngIf="!favoriteDoctorService.isFavorite(doctorEntity?.id)" (click)="addToFavorites()" style="cursor: pointer" color="accent"
+                          matTooltip="Dodaj lekarz do ulubionych">person_add_alt
+                    </mat-icon>
+                    <mat-icon *ngIf="favoriteDoctorService.isFavorite(doctorEntity?.id)" (click)="removeFromFavorites()" style="cursor: pointer" color="warn"
+                              matTooltip="Usuń lekarza z ulubionych">person_remove_alt
+                    </mat-icon>
+            </div>
+        </mat-card-title>
         <mat-card-content>
             {{doctorEntity?.briefDescription}}
         </mat-card-content>

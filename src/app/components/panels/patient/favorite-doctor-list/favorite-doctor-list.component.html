@@ -1,0 +1,5 @@
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+
+<div *ngIf="loaded" fxLayout="column" fxLayoutGap="40px">
+    <app-doctor-list-element *ngFor="let doctor of doctors" [doctorEntity]="doctor"></app-doctor-list-element>
+</div>

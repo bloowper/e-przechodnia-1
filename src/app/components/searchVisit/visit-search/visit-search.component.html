@@ -5,7 +5,7 @@
         <mat-card-content fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start" class="margin-bottom">
             <span fxLayout="row" fxLayoutGap="10px">
                 <button
-                    #private (click)="privateVisit(private)"
+                    #privatevisit (click)="privateVisit(privatevisit)"
                     mat-raised-button
                     [matBadge]="isPrivateVisit? '-':''"
                 >
@@ -37,24 +37,27 @@
                 </button>
             </span>
         </mat-card-content>
-        <mat-card-content fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start center" class="margin-bottom">
-            <mat-form-field appearance="fill" >
-                <mat-label>Miasto</mat-label>
-                <mat-select>
-                    <mat-option value="KRAKÓW">Kraków</mat-option>
-                    <mat-option value="WARSZAWA">Warszawa</mat-option>
-                    <mat-option value="LUBLIN">Lublin</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill" >
-                <mat-label>Specjalizacja</mat-label>
-                <mat-select>
-                    <mat-option value="STOMATOLOG">Stomatolog</mat-option>
-                    <mat-option value="ORTOPEDA">Ortopeda</mat-option>
-                    <mat-option value="CHIRURG">Chirurg</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <button mat-raised-button color="accent" (click)="search()">Wyszukaj</button>
+        <mat-card-content >
+            <form fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="start center" class="margin-bottom" #form="ngForm" (ngSubmit)="onSubmit(form)">
+                <mat-form-field appearance="fill" >
+                    <mat-label>Miasto</mat-label>
+                    <mat-select>
+                        <mat-option value="KRAKÓW">Kraków</mat-option>
+                        <mat-option value="WARSZAWA">Warszawa</mat-option>
+                        <mat-option value="LUBLIN">Lublin</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Specjalizacja</mat-label>
+                    <mat-select>
+                        <mat-option value="PSYCHOLOG">Psycholog</mat-option>
+                        <mat-option value="STOMATOLOG">Stomatolog</mat-option>
+                        <mat-option value="ORTOPEDA">Ortopeda</mat-option>
+                        <mat-option value="CHIRURG">Chirurg</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button #searchButton mat-raised-button color="accent" type="submit" [disabled]="!isValid()">Wyszukaj</button>
+            </form>
         </mat-card-content>
 
     </mat-card>
