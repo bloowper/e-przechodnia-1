@@ -1,54 +1,133 @@
+
 <mat-card>
     <mat-card-title>Zarejestruj wizytę</mat-card-title>
     <mat-card-content>
         <mat-stepper orientation="vertical" [linear]="true">
+            <!--address-->
             <mat-step>
                 <ng-template matStepLabel>Wybierz adres wizyty</ng-template>
-                <div fxLayout="column">
-                    <mat-slide-toggle color="primary" class="margin-top" #slider>
-                        Online
-                    </mat-slide-toggle>
-                    <mat-form-field appearance="fill" *ngIf="!slider.checked">
-                        <mat-label>Miejsce wizyty</mat-label>
-                        <mat-select>
-                            <mat-option value="1">Adres a</mat-option>
-                            <mat-option value="2">Adres b</mat-option>
-                            <mat-option value="3">Adres c</mat-option>
+                <form
+                    [formGroup]="addressForm"
+                    (submit)="submitAddress()"
+                >
+                    <div fxLayout="column">
+                        <mat-slide-toggle formControlName="isOnline" id="isOnline" color="primary" class="margin-top" #slider>
+                            Online
+                        </mat-slide-toggle>
+                        <mat-form-field appearance="fill" *ngIf="!slider.checked">
+                            <mat-label>Miejsce wizyty</mat-label>
+                            <mat-select formControlName="addressId">
+                                <mat-option
+                                    *ngFor="let address of getPysicalAdress()"
+                                    [value]="address.id"
+                                >
+                                    {{address.address}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="margin-top">
+                        <button mat-raised-button matStepperNext type="submit" [disabled]="disableAddressSubmit()">Dalej</button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <!--Data wizyty-->
+            <mat-step>
+                <ng-template matStepLabel>Wybierz datę wizyty</ng-template>
+                <form
+                    [formGroup]="dateForm"
+                    (submit)="submitData()"
+                >
+                    <div fxLayout="column" fxLayoutGap="5px">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Data</mat-label>
+                            <input
+                                formControlName="date"
+                                matInput
+                                [matDatepicker]="picker"
+                            >
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Godzina</mat-label>
+                            <mat-select
+                                formControlName="hour"
+                            >
+                                <!--TODO change hardcoded values-->
+                                <mat-option value="8:30">8:30</mat-option>
+                                <mat-option value="9:00">9:00</mat-option>
+                                <mat-option value="9:30">9:30</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="margin-top">
+                        <button mat-raised-button matStepperPrevious>Cofnij</button>
+                        <button mat-raised-button matStepperNext type="submit" [disabled]='dateForm.invalid' >Dalej</button>
+                    </div>
+                </form>
+
+            </mat-step>
+            <!--Typ uslugi-->
+            <mat-step>
+                <form
+                    [formGroup]="typeForm"
+                    (submit)="submitType()"
+                >
+                    <ng-template matStepLabel>Wybierz typ usługi</ng-template>
+                    <mat-form-field appearance="fill" >
+                        <mat-label>Rodzaj usługi</mat-label>
+                        <mat-select
+                            formControlName="serviceId"
+                        >
+                            <mat-option
+                                *ngFor="let service of doctorEntity?.services"
+                                [value]="service.id"
+                            >
+                                {{service.name}}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
-                </div>
-                <div class="margin-top">
-                    <button mat-raised-button matStepperNext >Dalej</button>
-                </div>
+                    <div class="margin-top">
+                        <button mat-raised-button matStepperPrevious>Cofnij</button>
+                        <button mat-raised-button matStepperNext
+                                type="submit"
+                                [disabled]="typeForm.invalid"
+                        >
+                            Dalej
+                        </button>
+                    </div>
+                </form>
             </mat-step>
+
+            <!--rodzaj platnosci i submit-->
             <mat-step>
-                <ng-template matStepLabel>Wybierz typ usługi</ng-template>
-                <mat-form-field appearance="fill" >
-                    <mat-label>Rodzaj usługi</mat-label>
-                    <mat-select>
-                        <mat-option value="1">Usługa a</mat-option>
-                        <mat-option value="2">Usługa b</mat-option>
-                        <mat-option value="3">Usługa c</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <div class="margin-top">
-                    <button mat-raised-button matStepperPrevious>Cofnij</button>
-                    <button mat-raised-button matStepperNext>Dalej</button>
-                </div>
-            </mat-step>
-            <mat-step>
-                <ng-template matStepLabel>Wybierz rodzaj płatności</ng-template>
-                <mat-form-field appearance="fill" >
-                    <mat-label>Rodzaj płatności</mat-label>
-                    <mat-select>
-                        <mat-option value="1">Płatność a</mat-option>
-                        <mat-option value="2">Płatnoś b</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <div class="margin-top">
-                    <button mat-raised-button matStepperPrevious>Cofnij</button>
-                    <button mat-raised-button (click)="approveVisit()">Zatwierdź</button>
-                </div>
+                <form
+                    [formGroup]="paymentForm"
+                    (submit)="submitPayment()"
+                >
+                    <ng-template matStepLabel>Wybierz rodzaj płatności</ng-template>
+                    <mat-form-field appearance="fill" >
+                        <mat-label>Rodzaj płatności</mat-label>
+                        <mat-select
+                            formControlName="paymentType"
+                        >
+                            <mat-option value="Blik">Blik</mat-option>
+                            <mat-option value="Przelew 24">Karta kredytowa</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="margin-top">
+                        <button mat-raised-button matStepperPrevious>Cofnij</button>
+                        <button
+                            mat-raised-button
+                            type="submit"
+                            [disabled]="paymentForm.invalid"
+                        >
+                            Zatwierdź
+                        </button>
+                    </div>
+                </form>
             </mat-step>
         </mat-stepper>
     </mat-card-content>

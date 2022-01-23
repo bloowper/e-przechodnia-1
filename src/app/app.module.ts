@@ -74,6 +74,7 @@ import {ToastContainerModule, ToastrModule, ToastrService} from "ngx-toastr";
 import { FavoriteDoctorListComponent } from './components/panels/patient/favorite-doctor-list/favorite-doctor-list.component';
 import { VisitElementComponent } from './components/panels/patient/visit-list/visit-element/visit-element.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -159,8 +160,8 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
             positionClass: 'inline'
         }),
         ToastContainerModule,
-        MatButtonToggleModule
-
+        MatButtonToggleModule,
+        MatNativeDateModule
     ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,6 +13,11 @@ mat-spinner {
 
 .right-content {
     grid-column: 7/11;
+    position: relative;
+}
+
+app-register-visit {
+    position: fixed;
 }
 
 .left-content {
