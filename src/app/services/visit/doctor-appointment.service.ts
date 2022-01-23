@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AppointmentEntity} from "../../entities/AppointmentEntity";
 import {Observable} from "rxjs";
 import {DoctorProviderService} from "../search/doctor-provider.service";
+import {PatientProviderService} from "../search/patient-provider.service";
 import {AppointmentStatus} from "../../entities/AppointmentStatus";
 
 @Injectable({
@@ -11,13 +12,14 @@ export class DoctorAppointmentService {
 
     appointments: AppointmentEntity[] = []
 
-    constructor(private doctorProviderService:DoctorProviderService) {
+    constructor(private doctorProviderService:DoctorProviderService, private patientProviderService:PatientProviderService) {
 
         this.appointments.push({
             id: 1,
             date: new Date("2022-02-01"),
             doctor: this.doctorProviderService.fetchedDoctors[0],
             doctorAddress: this.doctorProviderService.fetchedDoctors[0].addresses[0],
+            patient: this.patientProviderService.fetchedPatients[0],
             status: AppointmentStatus.AWAITING,
             medicalServiceEntity: this.doctorProviderService.fetchedDoctors[0].services[0],
             paymentType: "przelew 24",
@@ -28,6 +30,7 @@ export class DoctorAppointmentService {
             date: new Date("2022-02-01"),
             doctor: this.doctorProviderService.fetchedDoctors[0],
             doctorAddress: this.doctorProviderService.fetchedDoctors[0].addresses[0],
+            patient: this.patientProviderService.fetchedPatients[0],
             status: AppointmentStatus.AWAITING,
             medicalServiceEntity: this.doctorProviderService.fetchedDoctors[0].services[0],
             paymentType: "Blik",

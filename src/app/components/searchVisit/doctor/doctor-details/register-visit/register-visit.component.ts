@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DoctorProviderService} from "../../../../../services/search/doctor-provider.service";
 import {MatDialog} from "@angular/material/dialog";
 import {AddressType, DoctorAddress, DoctorEntity} from "../../../../../entities/DoctorEntity";
+import {PatientEntity} from "../../../../../entities/PatientEntity";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
@@ -17,6 +18,7 @@ export class RegisterVisitComponent implements OnInit {
 
 
     @Input() public doctorEntity!: DoctorEntity;
+    @Input() public patientEntity!: PatientEntity;
 
     addressForm: FormGroup;
     dateForm: FormGroup;
@@ -65,6 +67,7 @@ export class RegisterVisitComponent implements OnInit {
             paymentType:this.paymentForm.value.paymentType,
             date:this.dateForm.value.date,
             doctorAddress:this.doctorEntity.addresses[this.addressForm.value.addressId-1],
+            patient: this.patientEntity,
             recommendations:null,
             medicalServiceEntity:this.doctorEntity.services[this.typeForm.value.serviceId-1],
             doctor: this.doctorEntity,
