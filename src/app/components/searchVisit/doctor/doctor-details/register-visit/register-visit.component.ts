@@ -34,7 +34,7 @@ export class RegisterVisitComponent implements OnInit {
         this.addressForm = this.formBuilder.group(
             {
                 addressId: [null],
-                isOnline: [null]
+                isOnline: [false]
             }
         );
 
@@ -64,9 +64,9 @@ export class RegisterVisitComponent implements OnInit {
             id:null,
             paymentType:this.paymentForm.value.paymentType,
             date:this.dateForm.value.date,
-            doctorAddress:this.doctorEntity.addresses[this.addressForm.value.addressId],
+            doctorAddress:this.doctorEntity.addresses[this.addressForm.value.addressId-1],
             recommendations:null,
-            medicalServiceEntity:this.doctorEntity.services[this.typeForm.value.serviceId],
+            medicalServiceEntity:this.doctorEntity.services[this.typeForm.value.serviceId-1],
             doctor: this.doctorEntity,
             status: AppointmentStatus.AWAITING
         })
@@ -76,16 +76,15 @@ export class RegisterVisitComponent implements OnInit {
     }
 
     disableAddressSubmit() {
-        if (this.addressForm.value.isOnline) {
+        if (this.addressForm.value.addressId != null) {
+            console.log("1")
             return false;
         }
-        if (this.addressForm.value.address == undefined && (this.dateForm.value.isOnline === undefined)) {
-            //gdy nie wybrano adresu i nie online
+        if (this.addressForm.value.address == null && !this.addressForm.value.isOnline) {
+            console.log("2")
             return true;
         }
-        if (this.addressForm.value.address != undefined) {
-            return false;
-        }
+        console.log("3");
         return false;
     }
 
