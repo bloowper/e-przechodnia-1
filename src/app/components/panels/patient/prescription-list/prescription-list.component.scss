@@ -1,35 +1,29 @@
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 #info{
     line-height: 25px;
-    margin: 0 10% 30px 10%;
+    margin-left: 5%;
     font-size: 20px;
     text-decoration: none;
 }
 
-mat-list {
-    border-style: solid;
-    border-radius: 50px;
-    border-color: rgb(182, 182, 182);
-    border-width: 2px;
-
-    margin: 0 10% 30px 10%;
+mat-list-item {
+    //margin-left: 5%;
+    //margin: 5px;
+    //padding: 10px;
     display: block;
+    border-right: 4px solid coral;
+    border-left: 4px solid coral;
+    font-size: 20px;
+    background: #525050;
+    margin: 0 0 10px 0;
 }
 
-#list:hover{
-    background-color: rgb(209, 206, 206);
-    -webkit-transition: all 2s ease ;
-    transition: all 2s ease;
+mat-list{
+    line-height: 3em;
 }
 
 mat-card-content {
-    margin: 0 10% 30px 10%;
+    margin-left: 5%;
     font-size: 20px;
 }
 

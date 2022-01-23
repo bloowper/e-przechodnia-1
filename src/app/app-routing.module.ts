@@ -18,6 +18,9 @@ import {DoctorVisitListComponent} from "./components/panels/doctor/doctor-visit-
 import {
     FavoriteDoctorListComponent
 } from "./components/panels/patient/favorite-doctor-list/favorite-doctor-list.component";
+import {
+    PrescriptionDetailsComponent
+} from "./components/panels/patient/prescription-details/prescription-details.component";
 
 
 const routes: Routes = [
@@ -40,6 +43,7 @@ const routes: Routes = [
         children:[
             {path: '' ,redirectTo:'prescriptions',pathMatch:'full'},
             {path: 'prescriptions', component: PrescriptionListComponent},
+            {path: 'prescriptions/:id', component: PrescriptionDetailsComponent},
             {path: 'visits', component: VisitListComponent},
             {path: 'favouritedoctors', component: FavoriteDoctorListComponent}
         ]

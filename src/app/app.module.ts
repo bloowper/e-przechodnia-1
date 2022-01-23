@@ -65,6 +65,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { PrescriptionListComponent } from './components/panels/patient/prescription-list/prescription-list.component';
+import { PrescriptionDetailsComponent } from './components/panels/patient/prescription-details/prescription-details.component';
 import { SideNavComponent } from './components/shared/side-nav/side-nav.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { VisitListComponent } from './components/panels/patient/visit-list/visit-list.component';
@@ -95,6 +96,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     PopupComponent,
     RegisterVisitComponent,
     PrescriptionListComponent,
+    PrescriptionDetailsComponent,
     SideNavComponent,
     VisitListComponent,
     DoctorPrescriptionListComponent,
