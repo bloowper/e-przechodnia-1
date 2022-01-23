@@ -16,7 +16,7 @@
                         </mat-slide-toggle>
                         <mat-form-field appearance="fill" *ngIf="!slider.checked">
                             <mat-label>Miejsce wizyty</mat-label>
-                            <mat-select formControlName="address">
+                            <mat-select formControlName="addressId">
                                 <mat-option
                                     *ngFor="let address of getPysicalAdress()"
                                     [value]="address.id"

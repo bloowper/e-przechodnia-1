@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DoctorProviderService} from "../../../../../services/search/doctor-provider.service";
 import {MatDialog} from "@angular/material/dialog";
-import {PopupComponent} from "../../../../shared/popup/popup.component";
 import {AddressType, DoctorAddress, DoctorEntity} from "../../../../../entities/DoctorEntity";
-import {Form, FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
 import {DoctorAppointmentService} from "../../../../../services/visit/doctor-appointment.service";
+import {AppointmentStatus} from "../../../../../entities/AppointmentStatus";
 
 @Component({
     selector: 'app-register-visit',
@@ -15,7 +15,8 @@ import {DoctorAppointmentService} from "../../../../../services/visit/doctor-app
 })
 export class RegisterVisitComponent implements OnInit {
 
-    @Input() public doctorEntity: DoctorEntity|undefined;
+
+    @Input() public doctorEntity!: DoctorEntity;
 
     addressForm: FormGroup;
     dateForm: FormGroup;
@@ -32,7 +33,7 @@ export class RegisterVisitComponent implements OnInit {
 
         this.addressForm = this.formBuilder.group(
             {
-                address: [null],
+                addressId: [null],
                 isOnline: [null]
             }
         );
@@ -63,11 +64,11 @@ export class RegisterVisitComponent implements OnInit {
             id:null,
             paymentType:this.paymentForm.value.paymentType,
             date:this.dateForm.value.date,
-            doctorAddress:null,
+            doctorAddress:this.doctorEntity.addresses[this.addressForm.value.addressId],
             recommendations:null,
-            medicalServiceEntity:null,
-            doctor: null,
-            status: null
+            medicalServiceEntity:this.doctorEntity.services[this.typeForm.value.serviceId],
+            doctor: this.doctorEntity,
+            status: AppointmentStatus.AWAITING
         })
         this.router.navigate(['/patientPanel/visits'], {
             queryParams: {newid: 2}
