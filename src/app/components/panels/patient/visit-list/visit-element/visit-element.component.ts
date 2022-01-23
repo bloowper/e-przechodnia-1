@@ -20,7 +20,7 @@ export class VisitElementComponent implements OnInit {
 
     cancel() {
         this.doctorAppointmentService.appointments.forEach((value, index) => {
-            if (value.id = this.appointment.id) {
+            if (value.id !=null && value.id == this.appointment.id){
                 this.doctorAppointmentService.appointments.splice(index, 1);
             }
         })

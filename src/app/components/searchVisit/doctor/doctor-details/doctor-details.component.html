@@ -66,12 +66,12 @@
         </mat-card>
 
         <mat-card>
-            <mat-card-title>Ceny</mat-card-title>
+            <mat-card-title>Najważniejsze informacje</mat-card-title>
             <mat-card-content>
                 <mat-accordion >
 
-                    <!--education-->
-                    <mat-expansion-panel expanded="false">
+                    <!--Ceny usług-->
+                    <mat-expansion-panel>
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <mat-icon color="accent" class="experience-icon">money</mat-icon>
@@ -98,6 +98,22 @@
                                 <tr mat-header-row *matHeaderRowDef="medicalServiceColumns"></tr>
                                 <tr mat-row *matRowDef="let row; columns: medicalServiceColumns;"></tr>
                             </table>
+                        </div>
+                    </mat-expansion-panel>
+
+
+                    <mat-expansion-panel expanded="true">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon color="accent" class="experience-icon">school</mat-icon>
+                                <p>
+                                    Kalendarz
+                                </p>
+                            </mat-panel-title>
+                            <mat-panel-description>Wolne terminy</mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <div >
+                            <h1>Not implemented</h1>
                         </div>
                     </mat-expansion-panel>
                 </mat-accordion>
@@ -192,7 +208,7 @@
             <mat-card-content class="rating-container">
                 <mat-card *ngFor="let a of doctorEntity.patientAssessments">
                     <mat-card-title>
-                        <bar-rating [rate]="a.rating" [max]="6" [theme]="'default'"></bar-rating>
+                        <bar-rating [rate]="a.rating" [max]="6" [theme]="'default'" [readOnly]="true"></bar-rating>
                     </mat-card-title>
                     <mat-card-content>
                         <p>
@@ -211,7 +227,7 @@
 
     </div>
     <div class="right-content" >
-        <app-register-visit></app-register-visit>
+        <app-register-visit [doctorEntity]="doctorEntity"></app-register-visit>
     </div>
 
 </div>

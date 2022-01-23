@@ -19,30 +19,30 @@
             </p>
             <p>
                 <span class="bold">Dane adresowe: </span>
-                {{appointment.doctorAddress.address}}
+                {{appointment.doctorAddress?.address}}
             </p>
             <p>
                 <span class="bold">Typ: </span>
-                {{appointment.medicalServiceEntity.name}}
+                {{appointment.medicalServiceEntity?.name}}
             </p>
             <p>
                 <span class="bold">Koszt: </span>
-                {{appointment.medicalServiceEntity.price}} pln
+                {{appointment.medicalServiceEntity?.price}} pln
             </p>
             <p>
                 <span class="bold">Typ płatności</span>
-                {{appointment.paymentType}}
+                {{appointment?.paymentType}}
             </p>
         </mat-card-content>
     </mat-card>
     <mat-card class="doctor-information">
         <mat-card-title
             [routerLink]="['/visits/search/doctor']"
-            [queryParams]="{id:appointment.doctor.id}"
+            [queryParams]="{id:appointment.doctor?.id}"
             matTooltip="Przejdz na profil lekarza"
             style="cursor: pointer"
         >
-            Lekarz: {{appointment.doctor.firstName +" "+ appointment.doctor.lastName}}
+            Lekarz: {{appointment.doctor?.firstName +" "+ appointment.doctor?.lastName}}
         </mat-card-title>
         <mat-card-content>
             <h3 class="bold">Zalecenia przed wizytą</h3>

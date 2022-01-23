@@ -44,4 +44,21 @@ export class DoctorAppointmentService {
             },750)
         })
     }
+
+    private getNewId() {
+        let value = 0;
+        for (let appointment of this.appointments) {
+            if (appointment.id!=undefined &&  appointment.id >= value) {
+                value = appointment.id;
+            }
+        }
+        return value++;
+    }
+
+    addAppointment(appointmentEntity:AppointmentEntity):number {
+        var newId = this.getNewId();
+        appointmentEntity.id = newId;
+        this.appointments.push(appointmentEntity);
+        return newId;
+    }
 }

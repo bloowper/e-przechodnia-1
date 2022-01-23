@@ -16,17 +16,20 @@ export interface DoctorEntity {
 }
 
 export interface MedicalServiceEntity{
+    id: number;
     name: string;
     price: number;
 }
 
 export interface DoctorAddress {
+    id: number,
     type:AddressType
     address: string;
     moreInformation: string;
 }
 
 export interface PatientAssessment {
+    id: number
     rating:number
     patientNick:string
     content:string
