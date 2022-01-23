@@ -1,5 +1,5 @@
     <mat-card>
-        <mat-card-title style="margin-left: 5%;margin-top: 5%">
+        <mat-card-title style="margin-left: 2%;margin-top: 2%">
             Recepty
         </mat-card-title>
         <mat-card-content id="info">
@@ -8,7 +8,7 @@
             dodatkowe informacje dotyczące wybranej recepty.
         </mat-card-content>
 
-        <mat-card-title  style="margin-left: 5%;margin-top: 5%">
+        <mat-card-title  style="margin-left: 2%;margin-top: 5%">
             Twoja lista recept
         </mat-card-title>
 
@@ -24,9 +24,31 @@
         </mat-card-content>
 
         <!--------lista_recept--------->
-        <mat-list id="list" *ngFor="let medicine of medicines">
-            <mat-list-item>{{medicine.name}}
-                <button mat-raised-button color="primary">Zobacz szczegóły</button>
+        <mat-list>
+            <mat-list-item>{{medicines[0].name}}
+                <button mat-raised-button color="primary" routerLink = "/patientPanel/prescriptions/1">
+                    Zobacz szczegóły
+                </button>
+            </mat-list-item>
+            <mat-list-item>{{medicines[1].name}}
+                <button mat-raised-button color="primary" routerLink = "/patientPanel/prescriptions/2">
+                    Zobacz szczegóły
+                </button>
+            </mat-list-item>
+            <mat-list-item>{{medicines[2].name}}
+                <button mat-raised-button color="primary" routerLink = "/patientPanel/prescriptions/3">
+                    Zobacz szczegóły
+                </button>
+            </mat-list-item>
+            <mat-list-item>{{medicines[3].name}}
+                <button mat-raised-button color="primary" routerLink = "/patientPanel/prescriptions/4">
+                    Zobacz szczegóły
+                </button>
+            </mat-list-item>
+            <mat-list-item>{{medicines[4].name}}
+                <button mat-raised-button color="primary" routerLink = "/patientPanel/prescriptions/5">
+                    Zobacz szczegóły
+                </button>
             </mat-list-item>
         </mat-list>
 

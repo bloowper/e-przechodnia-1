@@ -1,0 +1,27 @@
+<mat-card *ngIf="id">
+    <mat-card-header>
+        <mat-card-title>
+            Recepta nr. #{{receipts[id-1].number}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Wystawiono dnia: {{receipts[id-1].date}}
+        </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-list>
+        <mat-list-item>
+            Wystawca: dr. Elżbieta Kowalska
+        </mat-list-item>
+        <mat-list-item>
+            {{receipts[id-1].title}}
+        </mat-list-item>
+        <mat-list-item>
+            Odpłatność: 100%
+        </mat-list-item>
+        <mat-list-item>
+            Dawkowanie: {{receipts[id-1].dose}}
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+
+
