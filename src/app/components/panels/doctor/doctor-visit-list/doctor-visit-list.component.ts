@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AppointmentEntity} from "../../../../entities/AppointmentEntity";
+import {DoctorProviderService} from "../../../../services/search/doctor-provider.service";
+import {PatientProviderService } from "../../../../services/search/patient-provider.service";
+import {DoctorAppointmentService} from "../../../../services/visit/doctor-appointment.service";
 
 @Component({
-  selector: 'app-doctor-visit-list',
-  templateUrl: './doctor-visit-list.component.html',
-  styleUrls: ['./doctor-visit-list.component.scss']
+    selector: 'app-visit-list',
+    templateUrl: './doctor-visit-list.component.html',
+    styleUrls: ['./doctor-visit-list.component.scss']
 })
 export class DoctorVisitListComponent implements OnInit {
 
-    visits: any[] = [
-        {name: "22.03.2022    9:00   Pacjent: Katarzyna Liwo"},
-        {name: "22.03.2022    9:30   Pacjent: Anna Kiljan"},
-        {name: "22.03.2022   10:00   Pacjent: Patryk Bedzio"},
-        {name: "22.03.2022   10:30   Pacjent: Iwo Szyld"},
-        {name: "22.03.2022   11:00   Pacjent: Piotr Sudoku"},
-        {name: "22.03.2022   11:30   Pacjent: Katarzyna Nogaj"},
-    ]
+    loaded = false;
+    awaiting: AppointmentEntity[] = [];
 
-  constructor() { }
+    constructor(private patientProviderService:PatientProviderService,private doctorAppointmentService:DoctorAppointmentService) {
 
-  ngOnInit(): void {
-  }
+    }
+
+    ngOnInit(): void {
+        var subscription = this.doctorAppointmentService.getAppointments().subscribe((appoinments: AppointmentEntity[]) => {
+            this.awaiting = appoinments;
+            this.loaded = true;
+        });
+    }
 
 }

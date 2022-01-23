@@ -1,1 +1,13 @@
-<p>doctor-visit-list works!</p>
+
+
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Nadchodzące" >
+        <mat-spinner *ngIf="!loaded"></mat-spinner>
+        <div *ngIf="loaded" fxLayout="column" fxLayoutGap="40px">
+            <app-doctor-visit-element  *ngFor="let visit of awaiting" [appointment]="visit" ></app-doctor-visit-element>
+        </div>
+    </mat-tab>
+    <mat-tab label="Historia">
+        not implemented
+    </mat-tab>
+</mat-tab-group>

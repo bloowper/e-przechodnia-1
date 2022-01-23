@@ -1,0 +1,38 @@
+
+
+<mat-card class="top-container">
+    <div class="actions" fxLayout="column" fxLayoutGap="5px">
+        <button mat-raised-button color="primary" (click)="cancel()">Odwołaj</button>
+        <button mat-raised-button color="primary" disabled="true">Szczegóły</button>
+
+    </div>
+    <mat-card class="visit-information">
+        <mat-card-title>
+            Dane wizyty
+        </mat-card-title>
+        <mat-card-content>
+            <p>
+                <span class="bold">Data: </span>
+                {{appointment.date| date:'W-L-y h:mm'}}
+            </p>
+            <p>
+                <span class="bold">Dane adresowe: </span>
+                {{appointment.doctorAddress?.address}}
+            </p>
+            <p>
+                <span class="bold">Typ: </span>
+                {{appointment.medicalServiceEntity?.name}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="patient-information">
+        <mat-card-title
+            [routerLink]="['/visits/search/patient']"
+            [queryParams]="{id:appointment.patient?.id}"
+            matTooltip="Przejdz na profil pacjenta"
+            style="cursor: pointer"
+        >
+            Pacjent: {{appointment.patient?.firstName +" "+ appointment.patient?.lastName}}
+        </mat-card-title>
+    </mat-card>
+</mat-card>

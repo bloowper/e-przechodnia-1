@@ -76,6 +76,7 @@ import { FavoriteDoctorListComponent } from './components/panels/patient/favorit
 import { VisitElementComponent } from './components/panels/patient/visit-list/visit-element/visit-element.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatNativeDateModule} from '@angular/material/core';
+import { DoctorVisitElementComponent } from './components/panels/doctor/doctor-visit-list/doctor-visit-element/doctor-visit-element.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     DoctorVisitListComponent,
     FavoriteDoctorListComponent,
     VisitElementComponent,
+    DoctorVisitElementComponent,
   ],
     imports: [
         BrowserModule,
