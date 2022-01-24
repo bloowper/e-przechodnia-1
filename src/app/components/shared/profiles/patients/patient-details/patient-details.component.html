@@ -1,0 +1,25 @@
+<mat-spinner *ngIf="!loaded"></mat-spinner>
+
+<div *ngIf="loaded" class="top-container">
+    <div  class="left-content" fxLayout="column" fxLayoutGap="20px">
+        <!-- CARD-->
+        <mat-card  class="patient-top-card">
+            <!--patient image-->
+            <img class="patient-image" [src]="patientEntity.thumbnailImageUrl" alt="zdjecie pacjenta">
+
+            <!--short description-->
+            <mat-card class="brief-description">
+                <mat-card-title>
+                    {{patientEntity.firstName}} {{patientEntity.lastName}}
+                </mat-card-title>
+                <mat-card-content>
+                    Wiek: {{patientEntity.age}}
+                </mat-card-content>
+            </mat-card>
+
+        </mat-card>
+
+    </div>
+
+</div>
+

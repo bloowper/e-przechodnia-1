@@ -8,6 +8,7 @@ import {DoctorListComponent} from "./components/searchVisit/doctor/doctor-list/d
 import {MainDoctorPanelComponent} from "./components/panels/doctor/main-doctor-panel/main-doctor-panel.component";
 import {MainPatientPanelComponent} from "./components/panels/patient/main-patient-panel/main-patient-panel.component";
 import {DoctorDetailsComponent} from "./components/searchVisit/doctor/doctor-details/doctor-details.component";
+import {PatientDetailsComponent} from "./components/shared/profiles/patients/patient-details/patient-details.component";
 import {NotFoundComponent} from "./components/homepage/not-found/not-found.component";
 import {PrescriptionListComponent} from "./components/panels/patient/prescription-list/prescription-list.component";
 import {VisitListComponent} from "./components/panels/patient/visit-list/visit-list.component";
@@ -30,6 +31,7 @@ const routes: Routes = [
     {path: 'visits', component: VisitSearchComponent, pathMatch: 'full'},
     {path: 'visits/search', component: DoctorListComponent,},
     {path: 'visits/search/doctor', component: DoctorDetailsComponent},
+    {path: 'visits/search/patient',component: PatientDetailsComponent},
     {path: 'login', component: SignInComponent},
     {path: 'register', component: SignUpComponent},
     {path: 'doctorPanel',component: MainDoctorPanelComponent,
