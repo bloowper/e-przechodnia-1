@@ -1,0 +1,31 @@
+<mat-card class="top-container">
+        <mat-card class="visit-information">
+        <mat-card-title>
+            Dane wizyty
+        </mat-card-title>
+        <mat-card-content>
+            <p>
+                <span class="bold">Data: </span>
+                {{historyAppointment.date| date:'W-L-y h:mm'}}
+            </p>
+            <p>
+                <span class="bold">Dane adresowe: </span>
+                {{historyAppointment.doctorAddress?.address}}
+            </p>
+            <p>
+                <span class="bold">Typ: </span>
+                {{historyAppointment.medicalServiceEntity?.name}}
+            </p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="patient-information">
+        <mat-card-title
+            [routerLink]="['/visits/search/patient']"
+            [queryParams]="{id:historyAppointment.patient?.id}"
+            matTooltip="Przejdz na profil pacjenta"
+            style="cursor: pointer"
+        >
+            Pacjent: {{historyAppointment.patient?.firstName +" "+ historyAppointment.patient?.lastName}}
+        </mat-card-title>
+    </mat-card>
+</mat-card>
