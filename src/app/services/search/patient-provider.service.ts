@@ -17,6 +17,8 @@ export class PatientProviderService {
                 firstName: 'Anna',
                 lastName: 'Nowak',
                 age: 25,
+                history: "Pacjent jest w trakcie leczenia lekiem Izotek. Po miesiącu stosowania widać znaczącą poprawę. Kuracja dla małej dawki leku musi potrwać minimum 6 miesięcy. ",
+                medicine: "Stosując lek Izotek należy unikać suplementów diety z witaminą A oraz antybiotyków z grupy tetracyklin (zwykle stosowane w leczeniu trądziku, rzadko przy zapaleniu oskrzeli). Jeśli nastąpi wysuszenie wszelkich błon śluzowych proszę o kontakt telefoniczny.",
                 thumbnailImageUrl: 'https://i.pinimg.com/564x/e3/69/d7/e369d7e313c8dc041f24958d5d36ff67.jpg'
             }
         ]

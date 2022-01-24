@@ -9,6 +9,9 @@ mat-spinner {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
+    //justify-content: center;
+
+
 }
 
 .right-content {
@@ -21,9 +24,26 @@ app-register-visit {
 }
 
 .left-content {
-    grid-column: 1/7;
-
+    //grid-column: 1/7;
+    grid-column: 2/10;
 }
+
+.illness-history{
+    grid-column: 3/7;
+    grid-row: 2/4;
+}
+
+.medicines{
+    grid-column: 7/12;
+    grid-row: 1/4;
+}
+
+
+.illness-detail{
+    grid-column: 3/7;
+    grid-row: 3/4;
+}
+
 
 .patient-top-card {
     display: grid;
@@ -38,7 +58,7 @@ app-register-visit {
     grid-row: 1/2;
     width: 100%;
     height: auto;
-    border-radius: 100px;
+    border-radius: 150px;
 }
 
 .brief-description {
