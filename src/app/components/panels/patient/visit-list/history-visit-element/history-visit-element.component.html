@@ -17,15 +17,19 @@
                 {{historyAppointment.medicalServiceEntity?.name}}
             </p>
         </mat-card-content>
-    </mat-card>
+        </mat-card>
     <mat-card>
         <mat-card-title
-            [routerLink]="['/visits/search/patient']"
-            [queryParams]="{id:historyAppointment.patient?.id}"
-            matTooltip="Przejdz na profil pacjenta"
+            [routerLink]="['/visits/search/doctor']"
+            [queryParams]="{id:historyAppointment.doctor?.id}"
+            matTooltip="Przejdz na profil doktora"
             style="cursor: pointer"
         >
-            Pacjent: {{historyAppointment.patient?.firstName +" "+ historyAppointment.patient?.lastName}}
+            Doktor: {{historyAppointment.doctor?.firstName +" "+ historyAppointment.doctor?.lastName}}
         </mat-card-title>
+        <mat-card-content>
+            <h3 class="bold">Zalecenia przed wizytą</h3>
+            {{historyAppointment.recommendations}}
+        </mat-card-content>
     </mat-card>
 </mat-card>

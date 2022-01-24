@@ -78,6 +78,7 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatNativeDateModule} from '@angular/material/core';
 import { DoctorVisitElementComponent } from './components/panels/doctor/doctor-visit-list/doctor-visit-element/doctor-visit-element.component';
 import { DoctorHistoryVisitElementComponent } from './components/panels/doctor/doctor-visit-list/doctor-history-visit-element/doctor-history-visit-element.component';
+import { HistoryVisitElementComponent } from './components/panels/patient/visit-list/history-visit-element/history-visit-element.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { DoctorHistoryVisitElementComponent } from './components/panels/doctor/d
     VisitElementComponent,
     DoctorVisitElementComponent,
     DoctorHistoryVisitElementComponent,
+    HistoryVisitElementComponent,
   ],
     imports: [
         BrowserModule,
