@@ -6,5 +6,7 @@ export interface PatientEntity {
     firstName: string
     lastName: string
     age: number
+    history: string
+    medicine: string
     thumbnailImageUrl: string;
 }
