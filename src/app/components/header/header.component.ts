@@ -14,19 +14,16 @@ export class HeaderComponent implements OnInit {
 
     @Input() websiteName: string | undefined;
 
-
-    authenticationService: AuthenticationService
-
-    constructor(authenticationService: AuthenticationService,private router:Router,private toastr: ToastrService) {
-        this.authenticationService = authenticationService;
+    constructor(public authenticationService: AuthenticationService,
+                private router:Router,
+                private toastr: ToastrService,
+    ) {
     }
 
     ngOnInit(): void {
     }
 
     logout() {
-        this.authenticationService.auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
-        this.router.navigate(['/'])
-        this.toastr.success("Poprawnie wylogowano użytkownika","Wylogowanie")
+        this.authenticationService.logout();
     }
 }

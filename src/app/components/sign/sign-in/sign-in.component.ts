@@ -6,6 +6,7 @@ import {ToastrService} from "ngx-toastr";
 import {Subscription} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {PopupComponent} from "../../shared/popup/popup.component";
+import {Location} from "@angular/common";
 
 @Component({
     selector: 'app-sign-in',
@@ -15,7 +16,12 @@ import {PopupComponent} from "../../shared/popup/popup.component";
 export class SignInComponent implements OnInit,OnDestroy {
     private subscription: Subscription|undefined;
 
-    constructor(public authenticationService: AuthenticationService,private router:Router,private toastr: ToastrService,private matDialog: MatDialog) {
+    constructor(public authenticationService: AuthenticationService,
+                private router:Router,
+                private toastr: ToastrService,
+                private matDialog: MatDialog,
+                private location:Location
+    ) {
 
     }
 
@@ -40,7 +46,7 @@ export class SignInComponent implements OnInit,OnDestroy {
     onSubmit(form: NgForm) {
         this.authenticationService.login(form.value.email, form.value.password).subscribe(value => {
             console.log("SignInComponent login sucess")
-            this.router.navigate(['/'])
+            this.location.back();
             this.toastr.success("Poprawnie zalogowano użytkownika", "Logowanie")
         }, error => {
             console.log("SignInComponent login error")

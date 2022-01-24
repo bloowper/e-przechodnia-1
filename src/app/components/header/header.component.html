@@ -1,7 +1,7 @@
 <mat-toolbar>
     <button mat-button routerLink="/homepage" routerLinkActive="mat-accent"><h2>{{websiteName}}</h2></button>
     <button mat-button routerLink="/visits" routerLinkActive="mat-accent">Wyszukaj wizyte</button>
-    <button *ngIf="authenticationService.isDoctor()" mat-button routerLink="/doctorPanel" routerLinkActive="mat-accent">Panel lekarza</button>
+    <button *ngIf="authenticationService.isDoctor()" mat-button routerLink="/doctorPanel/visits" routerLinkActive="mat-accent">Panel lekarza</button>
     <button *ngIf="authenticationService.isPatient()" mat-button routerLink="/patientPanel" routerLinkActive="mat-accent">Mój panel</button>
 
 

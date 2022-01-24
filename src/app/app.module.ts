@@ -164,7 +164,7 @@ import { PatientDetailsComponent } from './components/shared/profiles/patients/p
         MatSlideToggleModule,
         MatSidenavModule,
         ToastrModule.forRoot({
-            timeOut: 3000,
+            timeOut: 1500,
             progressBar: true,
             progressAnimation: "increasing",
             positionClass: 'inline'

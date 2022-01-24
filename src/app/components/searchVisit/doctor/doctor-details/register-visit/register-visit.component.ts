@@ -8,6 +8,7 @@ import {ToastrService} from "ngx-toastr";
 import {Router} from "@angular/router";
 import {DoctorAppointmentService} from "../../../../../services/visit/doctor-appointment.service";
 import {AppointmentStatus} from "../../../../../entities/AppointmentStatus";
+import {AuthenticationService} from "../../../../../services/authentication/authentication.service";
 
 @Component({
     selector: 'app-register-visit',
@@ -20,17 +21,21 @@ export class RegisterVisitComponent implements OnInit {
     @Input() public doctorEntity!: DoctorEntity;
     @Input() public patientEntity!: PatientEntity;
 
+    today = new Date();
+
     addressForm: FormGroup;
     dateForm: FormGroup;
     typeForm: FormGroup;
     paymentForm: FormGroup;
+    visitTypeForm: FormGroup;
 
     constructor(public doctorProviderService: DoctorProviderService,
                 private matDialog: MatDialog,
                 private formBuilder: FormBuilder,
                 private toastrService: ToastrService,
                 private router: Router,
-                private doctorAppointmentService:DoctorAppointmentService
+                private doctorAppointmentService:DoctorAppointmentService,
+                public authenticationService:AuthenticationService
     ) {
 
         this.addressForm = this.formBuilder.group(
@@ -54,6 +59,11 @@ export class RegisterVisitComponent implements OnInit {
         this.paymentForm = this.formBuilder.group({
             paymentType: [null, Validators.required]
         })
+
+        this.visitTypeForm = this.formBuilder.group({
+            visitType:['private',Validators.required]
+        })
+
     }
 
     ngOnInit(): void {
@@ -80,14 +90,11 @@ export class RegisterVisitComponent implements OnInit {
 
     disableAddressSubmit() {
         if (this.addressForm.value.addressId != null) {
-            console.log("1")
             return false;
         }
         if (this.addressForm.value.address == null && !this.addressForm.value.isOnline) {
-            console.log("2")
             return true;
         }
-        console.log("3");
         return false;
     }
 
@@ -120,4 +127,27 @@ export class RegisterVisitComponent implements OnInit {
         this.submitAllForm();
     }
 
+    submitVisitType() {
+        console.log("1");
+        if (this.isNfzVisit()) {
+            this.submitAllForm();
+        }
+    }
+
+    isPrivateVisit() {
+        var visitType = this.visitTypeForm.value.visitType;
+        if (visitType == 'private') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    isNfzVisit() {
+        return !this.isPrivateVisit();
+    }
+
+    onClickVisitType() {
+        this.isPrivateVisit();
+    }
 }
