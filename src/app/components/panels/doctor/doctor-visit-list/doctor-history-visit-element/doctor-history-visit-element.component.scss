@@ -1,0 +1,31 @@
+
+p {
+    padding: 0;
+    margin: 0;
+}
+mat-card.top-container {
+    display: grid;
+    grid-template-columns: 1fr 40% 40%;
+    grid-template-rows: 150px;
+    grid-gap: 20px;
+}
+
+
+.actions {
+    grid-column: 1/2;
+    grid-row: 1;
+}
+
+.doctor-information {
+    grid-column: 3/4;
+    grid-row: 1;
+}
+
+.visit-information {
+    grid-column: 2/3;
+    grid-row: 1;
+}
+
+.bold {
+    font-weight: bold;
+}

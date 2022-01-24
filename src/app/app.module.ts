@@ -77,6 +77,9 @@ import { VisitElementComponent } from './components/panels/patient/visit-list/vi
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatNativeDateModule} from '@angular/material/core';
 import { DoctorVisitElementComponent } from './components/panels/doctor/doctor-visit-list/doctor-visit-element/doctor-visit-element.component';
+import { DoctorHistoryVisitElementComponent } from './components/panels/doctor/doctor-visit-list/doctor-history-visit-element/doctor-history-visit-element.component';
+import { HistoryVisitElementComponent } from './components/panels/patient/visit-list/history-visit-element/history-visit-element.component';
+import { PatientDetailsComponent } from './components/shared/profiles/patients/patient-details/patient-details.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +108,9 @@ import { DoctorVisitElementComponent } from './components/panels/doctor/doctor-v
     FavoriteDoctorListComponent,
     VisitElementComponent,
     DoctorVisitElementComponent,
+    DoctorHistoryVisitElementComponent,
+    HistoryVisitElementComponent,
+    PatientDetailsComponent,
   ],
     imports: [
         BrowserModule,
