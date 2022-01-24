@@ -16,19 +16,19 @@ export class DoctorProviderService {
                 id: 1,
                 firstName: 'Elżbieta',
                 lastName: 'Kowalska',
-                thumbnailImageUrl: 'https://i.pinimg.com/564x/e3/69/d7/e369d7e313c8dc041f24958d5d36ff67.jpg',
-                briefDescription: 'error qui hic libero assumenda id soluta autem esse dicta quia doloremque veritatis nemo illum accusamus in doloremque vel odio',
-                description: 'omnis et aut quis omnis minima nulla ut beatae esse sapiente natus minus est labore provident qui hic reiciendis impedit culpa est omnis ut non consequatur consequuntur dicta nesciunt maxime quam nesciunt debitis qui corporis libero quia nobis quo beatae aspernatur eveniet qui nostrum est eos quia nobis vero non est sit dolores natus sunt magni dolor consequuntur consequatur harum reiciendis et voluptates voluptate optio aut esse eveniet sapiente facere ipsam nam nihil reiciendis incidunt dolores ut numquam facere et dignissimos iusto distinctio veniam qui velit consequatur quisquam ratione veritatis est necessitatibus animi magni doloremque dolores facere molestiae a odio architecto et nam sed eum ipsa repudiandae id quam velit neque pariatur repudiandae sed officia veritatis et rem ut laborum minima impedit sint vero ut animi sed nemo dignissimos quod autem adipisci laboriosam necessitatibus accusamus fugit unde corporis error error aut et placeat rerum molestiae enim illo ut sapiente et magni reprehenderit sed molestiae vitae nobis nihil omnis aperiam sit ut velit natus unde velit saepe ab ut ipsa voluptatibus unde vel necessitatibus mollitia nemo et perspiciatis perspiciatis qui et ex officiis numquam qui et doloremque aut voluptas molestiae tempore ut maiores eaque magnam et facilis doloremque doloremque est aut veritatis sint non quasi esse dolor qui ea voluptas aperiam qui architecto aut voluptatum mollitia aut quia adipisci architecto aut doloremque quis autem eum quo numquam tenetur deleniti facere iusto et id hic enim consequuntur non dolores ad necessitatibus inventore iste qui occaecati nihil culpa ex cupiditate enim cupiditate in velit ut necessitatibus magnam rerum incidunt est dolor velit nostrum pariatur quidem quia fugit qui labore maiores omnis soluta quia velit vel et et ut non ipsam et repellat aliquid accusamus qui ullam ad veritatis earum commodi aut deleniti laborum accusamus est impedit harum corporis eaque provident et omnis sit',
+                thumbnailImageUrl: 'https://media.istockphoto.com/photos/mental-health-professional-discusses-something-with-patient-picture-id912208968?k=20&m=912208968&s=612x612&w=0&h=ffJL3SJBYEfWtGSXE2tLNF_V8iHphmeAdL2-Fu0Hgw4=',
+                briefDescription: 'Pomogę Ci poukładać wszystkie myśli w głowie',
+                description: 'Kończąc Liceum wiedziałam, że to co chcę robić w życiu będzie polegało na pomocy innym. Wybrałam najlepszą, możliwą ścieżkę skupiając się na psychoterapii. Ukończyłam studia psychologiczne oraz przeszłam szereg kursów. Pomogłam wielu osobom, mam w swojej historii przeróżne przypadki kliniczne. ',
                 addresses: [
-                    {id:1, type: AddressType.EVISIT,moreInformation:'Komunikacja poprzez: skype,zoom,telefon.Dokładne instrukcje zostaną przesłane przed wizytą. W przypadku chęci umówienia dokładnej drogi kontaktu prosze o sms 123 123 123', address: 'e wizyta'},
-                    {id:2, type: AddressType.NORMAL,moreInformation:'Parter pokój 360 w srody i piatki. Dostepny parking przed budynkiem.', address: 'Lublin Zamkowa 32'},
-                    {id:3, type: AddressType.NORMAL,moreInformation:'Parter pokój 360 w srody i piatki. Dostepny parking przed budynkiem', address: 'Lublin Zamkowa 32'},
+                    {id:1, type: AddressType.EVISIT,moreInformation:'Komunikacja poprzez: Skype, Zoom, Telefon. Dokładne instrukcje zostaną przesłane przed wizytą. W przypadku chęci umówienia dokładnej drogi kontaktu proszę o sms pod numerem: 123 123 123', address: 'e wizyta'},
+                    {id:2, type: AddressType.NORMAL,moreInformation:'Parter pokój 360 w srody i piatki. Dostepny parking przed budynkiem.', address: 'Lublin, ul. Zamkowa 32'},
+                    {id:3, type: AddressType.NORMAL,moreInformation:'1. piętro, pokój 12 we wtorki i czwartki. Dostepny parking przed budynkiem', address: 'Lublin, ul. Kolorowa 2'},
                 ],
                 services: [
-                    {id:1, name: "qui excepturi ", price: 125},
-                    {id:2, name: "eaque officiis", price: 125},
-                    {id:3, name: "tenetur nulla", price: 125},
-                    {id:4, name: "sint illum", price: 125}
+                    {id:1, name: "Pierwsza wizyta", price: 200},
+                    {id:2, name: "Kolejna wizyta", price: 125},
+                    {id:3, name: "Terapia kryzysowa", price: 125},
+                    {id:4, name: "Terapia rodzin", price: 150}
                 ],
                 specialties: [
                     'Psychoterapia',
@@ -64,31 +64,31 @@ export class DoctorProviderService {
                         id:1,
                         patientNick:'Roman',
                         rating: 4,
-                        content: `id quibusdam et est aut eaque impedit accusamus reprehenderit excepturi reprehenderit consequuntur sed sed enim placeat et rerum quam voluptatibus`
+                        content: `Pani Ewa zdecydowanie pomogła mi uporać się w kryzysie.`
                     },
                     {
                         id:2,
-                        patientNick:'Eaque',
-                        rating: 3,
-                        content: 'doloribus modi officia nostrum rem odit ullam aut est et labore dolores voluptas architecto vero et reiciendis dolor rerum dolorem voluptatum aliquid et ex pariatur omnis consequuntur cumque voluptatum eaque deleniti ipsam illum dignissimos eum quia sint ut fugiat optiot'
+                        patientNick:'Ela',
+                        rating: 5,
+                        content: 'Nigdy nie czułam się bardziej wysłuchana. Dzięki Pani Ewie moje życie znów nabrało barw. Pani Ewa wie, jakie kwestie i w jaki sposób poruszyć, aby móc je przepracować. Polecam Panią Ewę.'
                     },
                     {
                         id:3,
-                        patientNick:'Eaque',
-                        rating: 3,
-                        content: 'doloribus modi officia nostrum rem odit ullam aut est et labore dolores voluptas architecto vero et reiciendis dolor rerum dolorem voluptatum aliquid et ex pariatur omnis consequuntur cumque voluptatum eaque deleniti ipsam illum dignissimos eum quia sint ut fugiat optiot'
+                        patientNick:'ER',
+                        rating: 4,
+                        content: 'Psychoterapeuta jak każdy inny. Pomógł mi w kryzysie i jestem wdzięczny. Jednak cierpliwości do dzieci to Pani Ewa nie ma...'
                     },
                     {
                         id:4,
-                        patientNick:'Eaque',
-                        rating: 3,
-                        content: 'doloribus modi officia nostrum rem odit ullam aut est et labore dolores voluptas architecto vero et reiciendis dolor rerum dolorem voluptatum aliquid et ex pariatur omnis consequuntur cumque voluptatum eaque deleniti ipsam illum dignissimos eum quia sint ut fugiat optiot'
+                        patientNick:'Klaudia',
+                        rating: 5,
+                        content: 'Jestem zadowolona z usług Pani Ewy'
                     },
                     {
                         id:5,
-                        patientNick:'Eaque',
+                        patientNick:'NN',
                         rating: 3,
-                        content: 'doloribus modi officia nostrum rem odit ullam aut est et labore dolores voluptas architecto vero et reiciendis dolor rerum dolorem voluptatum aliquid et ex pariatur omnis consequuntur cumque voluptatum eaque deleniti ipsam illum dignissimos eum quia sint ut fugiat optiot'
+                        content: 'Moje dziecko zaczęło się buntować, liczyliśmy że Pani Ewa pomoże nam znaleźć wspólną nić porozumienia, lecz po wielu sesjach jedynie co się poprawiło to budżet Pani Ewy. Nie mogę powiedzieć, że się nie starała, ale jednak do upartych nastolatków to Pani Ewa nie umie dotrzeć.'
                     }
                 ]
 
