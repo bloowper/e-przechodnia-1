@@ -17,8 +17,26 @@
                 </mat-card-content>
             </mat-card>
 
-        </mat-card>
+            <!--Treatment history-->
+            <mat-card class="illness-history">
+                <mat-card-title>
+                    Historia leczenia:
+                </mat-card-title>
+                <mat-card-content class="illness-detail">
+                    {{patientEntity.history}}
+                </mat-card-content>
+            </mat-card>
 
+            <!--Medicine that patient takes-->
+            <mat-card class="medicines">
+                <mat-card-title style="margin-top: 8%">
+                    Przeciwskazania:
+                </mat-card-title>
+                <mat-card-content class="medicine-decription" >
+                    {{patientEntity.medicine}}
+                </mat-card-content>
+            </mat-card>
+        </mat-card>
     </div>
 
 </div>
