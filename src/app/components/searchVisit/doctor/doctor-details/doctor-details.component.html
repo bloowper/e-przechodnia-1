@@ -12,7 +12,7 @@
                 <mat-card-title>
                     {{doctorEntity.firstName}} {{doctorEntity.lastName}}
                     <mat-icon *ngIf="!favoriteDoctorService.isFavorite(doctorEntity.id)" (click)="addToFavorites()" style="cursor: pointer" color="accent"
-                              matTooltip="Dodaj lekarz do ulubionych">person_add_alt
+                              matTooltip="Dodaj lekarza do ulubionych">person_add_alt
                     </mat-icon>
                     <mat-icon *ngIf="favoriteDoctorService.isFavorite(doctorEntity.id)" (click)="removeFromFavorites()" style="cursor: pointer" color="warn"
                               matTooltip="Usuń lekarza z ulubionych">person_remove_alt

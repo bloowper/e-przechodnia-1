@@ -23,7 +23,7 @@ export class VisitProviderService {
                     {type: AddressType.NORMAL, moreInformation:'Parter pokój 360 w srody i piatki. Dostepny parking przed budynkiem.', address: 'Lublin Zamkowa 32'}
                 ],
                 services: [
-                    {name: "qui excepturi ", price: 125}
+                    {name: "Kolejna wizyta ", price: 125}
                 ],
                 doctorAssessments:[
                     {firstName: "Elżbieta", lastName: "Kowalska"}
