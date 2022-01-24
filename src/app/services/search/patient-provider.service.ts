@@ -29,11 +29,28 @@ export class PatientProviderService {
             setTimeout(() => {
                 if (patientEntity != null) {
                     subscriber.next(patientEntity);
+                    subscriber.complete();
                 } else {
                     subscriber.error(new Error(`Nie znaleziono pacjenta o podanym id = ${patientId}`))
+                    subscriber.complete();
                 }
             }, 500);
         })
+    }
+
+    getPatientsById(patientId:Set<number>):Observable<PatientEntity[]>{
+        return new Observable(subscriber => {
+            let patient: PatientEntity[] = [];
+            for (let fetchedDoctor of this.fetchedPatients) {
+                if (patientId.has(fetchedDoctor.id)) {
+                    patient.push(fetchedDoctor);
+                }
+            }
+            setTimeout(() => {
+                subscriber.next(patient);
+                subscriber.complete();
+            }, 500);
+        });
     }
 
 }
