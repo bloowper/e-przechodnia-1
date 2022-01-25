@@ -2,6 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {UserType} from "../../entities/UserType";
 import {AuthEntity} from "../../entities/AuthEntity";
 import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -15,10 +16,10 @@ export class AuthenticationService implements OnDestroy{
 
     private _auth: AuthEntity;
 
-    private readonly local_storage_auth = 'auth';
+    private readonly LOCAL_STORAGE_AUTH = 'auth';
 
-    constructor() {
-        var storageData = localStorage.getItem(this.local_storage_auth);
+    constructor(private router:Router) {
+        var storageData = localStorage.getItem(this.LOCAL_STORAGE_AUTH);
         if (storageData != null) {
             var parse = JSON.parse(storageData);
             this._auth = new AuthEntity(parse['token'], parse['authority'], parse['email'], parse['id']);
@@ -52,6 +53,11 @@ export class AuthenticationService implements OnDestroy{
         this._auth = value;
     }
 
+    logout() {
+        this.auth = new AuthEntity(null, UserType.NOT_LOGGED_ID, null, null);
+        localStorage.removeItem(this.LOCAL_STORAGE_AUTH)
+        this.router.navigate(['/']);
+    }
 
     login(email:string, password:string): Observable<AuthEntity> {
         return new Observable(subscriber => {
@@ -63,7 +69,7 @@ export class AuthenticationService implements OnDestroy{
                     var authEntity = new AuthEntity("TOKEN",find.authority,find.email,find.id);
                     this.auth = authEntity;
                     subscriber.next(authEntity);
-                    localStorage.setItem(this.local_storage_auth, JSON.stringify(authEntity));
+                    localStorage.setItem(this.LOCAL_STORAGE_AUTH, JSON.stringify(authEntity));
                     subscriber.complete();
                 } else {
                     console.log("AuthenticationService user not found")

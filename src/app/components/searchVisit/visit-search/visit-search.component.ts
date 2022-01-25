@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {Router} from "@angular/router";
-import {NgForm} from "@angular/forms";
+import {FormBuilder, FormGroup, NgForm, Validators} from "@angular/forms";
 
 @Component({
     selector: 'app-visit-search',
@@ -15,10 +15,15 @@ export class VisitSearchComponent implements OnInit {
     isPrivateVisit = false;
     isNfzVisit = false;
     isEVisit = false;
-    isPersonal = false;
+    isFaceToFace = false;
 
-    constructor(private router:Router) {
+    searchParms: FormGroup;
 
+    constructor(private router:Router,private formBuilder:FormBuilder) {
+        this.searchParms = this.formBuilder.group({
+            city: [null,Validators.required],
+            specialty : [null,Validators.required]
+        })
     }
 
     ngOnInit(): void {
@@ -54,40 +59,58 @@ export class VisitSearchComponent implements OnInit {
     }
 
     personalVisit(mb: MatButton) {
-        this.isPersonal = !this.isPersonal;
-        if (this.isPersonal) {
+        this.isFaceToFace = !this.isFaceToFace;
+        if (this.isFaceToFace) {
             mb.color = 'primary';
         } else {
             mb.color = undefined;
         }
     }
 
-
-    changeVisitProperties(mb:MatButton, b:boolean) {
-        //TODO repair
-        // how typescript pass references? can't change b value
-        b = !b;
-        if (b) {
-            mb.color = 'primary';
-        } else {
-            mb.color = undefined;
-        }
-    }
 
 
     isValid() {
         if (
+            (!this.searchParms.invalid) &&
             (this.isPrivateVisit || this.isNfzVisit) &&
-            (this.isEVisit || this.isPersonal)
+            (this.isEVisit || this.isFaceToFace)
         ) {
             return true;
-        }else {
-            return false;
         }
+        return false;
     }
 
-    onSubmit(form: NgForm) {
+    private getLocationTypes(): String[] {
+        let toreturn:String[] = [];
+        if (this.isEVisit) {
+            toreturn.push("online")
+        }
+        if (this.isFaceToFace) {
+            toreturn.push("face_to_face")
+        }
+        return toreturn;
+    }
 
-        this.router.navigate(['/','visits','search'])
+    private getVisitTypes() {
+        let toreturn: String[] = [];
+        if (this.isPrivateVisit) {
+            toreturn.push("private")
+        }
+        if (this.isNfzVisit) {
+            toreturn.push("nfz")
+        }
+        return toreturn;
+    }
+
+    onSubmit() {
+        this.router.navigate(['/','visits','search'],
+            {
+                queryParams:{
+                    pageNo: 1,
+                    pageSize: 5,
+                    location: this.getLocationTypes().join(","),
+                    type: this.getVisitTypes().join(",")
+                }
+            })
     }
 }

@@ -1,7 +1,8 @@
 
+<script src="register-visit.component.ts"></script>
 <mat-card>
     <mat-card-title>Zarejestruj wizytę</mat-card-title>
-    <mat-card-content>
+    <mat-card-content *ngIf="authenticationService.isLoggedIn(); else elseBlock">
         <mat-stepper orientation="vertical" [linear]="true">
             <!--address-->
             <mat-step>
@@ -45,6 +46,7 @@
                             <input
                                 formControlName="date"
                                 matInput
+                                [min]="today"
                                 [matDatepicker]="picker"
                             >
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -101,8 +103,38 @@
                 </form>
             </mat-step>
 
-            <!--rodzaj platnosci i submit-->
             <mat-step>
+                <form
+                    [formGroup]="visitTypeForm"
+                    (submit)="submitVisitType()"
+                >
+                    <ng-template matStepLabel>Wybierz rodzaj świadczenia</ng-template>
+                    <mat-form-field appearance="fill"
+                    >
+                        <mat-label>Rodzaj płatności</mat-label>
+                        <mat-select
+                            formControlName="visitType"
+                            (blur)="onClickVisitType()"
+                        >
+                            <mat-option value="nfz">Nfz</mat-option>
+                            <mat-option value="private">prywatnie</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <div class="margin-top">
+                        <button mat-raised-button matStepperPrevious>Cofnij</button>
+                        <button mat-raised-button matStepperNext
+                                type="submit"
+                                [disabled]="visitTypeForm.invalid"
+                        >
+                            {{isPrivateVisit()? 'Dalej':'Zatwierdz'}}
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+            <!--rodzaj platnosci i submit-->
+            <mat-step
+                *ngIf="isPrivateVisit()"
+            >
                 <form
                     [formGroup]="paymentForm"
                     (submit)="submitPayment()"
@@ -129,6 +161,12 @@
                     </div>
                 </form>
             </mat-step>
+
         </mat-stepper>
     </mat-card-content>
+    <ng-template #elseBlock>
+        <mat-card-content>
+            Wymagane logowanie
+        </mat-card-content>
+    </ng-template>
 </mat-card>

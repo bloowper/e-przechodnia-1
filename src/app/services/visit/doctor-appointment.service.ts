@@ -27,7 +27,7 @@ export class DoctorAppointmentService {
             recommendations: "Prosze przyjść 20 minut przed wizytą"
         })
         this.appointments.push({
-            id: 1,
+            id: 2,
             date: new Date("2022-02-01"),
             doctor: this.doctorProviderService.fetchedDoctors[0],
             doctorAddress: this.doctorProviderService.fetchedDoctors[0].addresses[0],
@@ -49,7 +49,7 @@ export class DoctorAppointmentService {
             recommendations: "Prosze przyjść na czczo"
         })
         this.historyAppointments.push({
-            id: 1,
+            id: 2,
             date: new Date("2021-09-15"),
             doctor: this.doctorProviderService.fetchedDoctors[0],
             doctorAddress: this.doctorProviderService.fetchedDoctors[0].addresses[0],
@@ -60,7 +60,7 @@ export class DoctorAppointmentService {
             recommendations: "Proszę przyjść bez soczewek"
         })
         this.historyAppointments.push({
-            id: 1,
+            id: 3,
             date: new Date("2021-08-17"),
             doctor: this.doctorProviderService.fetchedDoctors[0],
             doctorAddress: this.doctorProviderService.fetchedDoctors[0].addresses[0],

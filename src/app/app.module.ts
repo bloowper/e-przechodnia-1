@@ -166,7 +166,7 @@ import { PrescriptionSuccessComponent } from './components/panels/doctor/doctor-
         MatSlideToggleModule,
         MatSidenavModule,
         ToastrModule.forRoot({
-            timeOut: 3000,
+            timeOut: 1500,
             progressBar: true,
             progressAnimation: "increasing",
             positionClass: 'inline'
