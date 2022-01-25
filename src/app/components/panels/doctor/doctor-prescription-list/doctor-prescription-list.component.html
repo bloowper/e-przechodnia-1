@@ -1,1 +1,70 @@
-<p>doctor-prescription-list works!</p>
+
+
+<mat-card class="top-container">
+
+    <mat-card>
+        <mat-card-title class="pb-3"> Wypisz receptę</mat-card-title>
+        <form  #form="ngForm"><!--(ngSubmit)="onSubmit(form)"-->
+            <mat-form-field  appearance="fill" color="accent">
+                <mat-label>Imię pacjenta</mat-label>
+                <input
+                    id="name"
+                    type="text"
+                    size = "60"
+                    matInput
+                    ngModel
+                    name="text"
+                    required
+                >
+            </mat-form-field>
+            <mat-form-field  appearance="fill" color="accent">
+                <mat-label>Nazwisko pacjenta</mat-label>
+                <input
+                    id="surname"
+                    type="text"
+                    matInput
+                    ngModel
+                    name="text"
+                    required
+                >
+            </mat-form-field>
+            <mat-form-field  appearance="fill" color="accent">
+                <mat-label>Nazwa leku</mat-label>
+                <input
+                    id="lek"
+                    type="text"
+                    matInput
+                    ngModel
+                    name="text"
+                    required>
+            </mat-form-field>
+            <mat-form-field  appearance="fill" color="accent">
+                <mat-label>Odpłatność</mat-label>
+                <input
+                    id="odplatnosc"
+                    type="text"
+                    matInput
+                    ngModel
+                    name="text"
+                    required>
+            </mat-form-field>
+            <mat-form-field  appearance="fill" color="accent">
+                <mat-label>Dawkowanie</mat-label>
+                <textarea cols="30" rows="10"
+                          id="dawkowanie"
+                          type="text"
+                          matInput
+                          ngModel
+                          name="text"
+                          required>
+
+                ></textarea>
+
+            </mat-form-field>
+            <mat-card-actions>
+                <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Wypisz receptę</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+
+</mat-card>
