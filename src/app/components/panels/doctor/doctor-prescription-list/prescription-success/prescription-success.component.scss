@@ -1,6 +1,6 @@
 
 mat-card {
-    max-width: 463px;
+    max-width: 313px;
     margin: 2em auto;
     text-align: center;
 }
@@ -11,17 +11,17 @@ mat-form-field {
 
 mat-card-title {
     border-bottom: 1px solid #69f0ae;
-    width: 400px;
+    width: 250px;
 }
 
-p {
-    padding: 0;
-    margin: 0;
+.h3 {
+    text-align: center;
 }
+
 mat-card.top-container {
     display: grid;
     grid-template-columns: 1fr 40% 40%;
-    grid-template-rows: 630px;
+    grid-template-rows: 220px;
     grid-gap: 20px;
 }
 

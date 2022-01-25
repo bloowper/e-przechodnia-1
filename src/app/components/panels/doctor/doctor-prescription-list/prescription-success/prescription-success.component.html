@@ -1,0 +1,18 @@
+
+
+<mat-card class="top-container">
+
+    <mat-card>
+        <mat-card-title class="pb-3"> Gratulacje!</mat-card-title>
+        <form #form="ngForm">
+            <mat-form-field  appearance="fill" color="accent">
+                <h3>Twoja recepta została wypisana!</h3>
+            </mat-form-field>
+            <button
+                type="submit" mat-raised-button color="primary"
+                [routerLink]="['/doctorPanel/prescriptions']"
+            >Wypisz następną receptę</button>
+        </form>
+    </mat-card>
+
+</mat-card>
