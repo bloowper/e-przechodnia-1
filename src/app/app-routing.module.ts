@@ -11,6 +11,7 @@ import {DoctorDetailsComponent} from "./components/searchVisit/doctor/doctor-det
 import {PatientDetailsComponent} from "./components/shared/profiles/patients/patient-details/patient-details.component";
 import {NotFoundComponent} from "./components/homepage/not-found/not-found.component";
 import {PrescriptionListComponent} from "./components/panels/patient/prescription-list/prescription-list.component";
+import {PrescriptionSuccessComponent} from "./components/panels/doctor/doctor-prescription-list/prescription-success/prescription-success.component";
 import {VisitListComponent} from "./components/panels/patient/visit-list/visit-list.component";
 import {
     DoctorPrescriptionListComponent
@@ -38,7 +39,8 @@ const routes: Routes = [
         children:[
             {path: '', redirectTo: 'prescriptions', pathMatch: 'full'},
             {path: 'visits',component: DoctorVisitListComponent},
-            {path: 'prescriptions',component: DoctorPrescriptionListComponent}
+            {path: 'prescriptions',component: DoctorPrescriptionListComponent},
+            {path: 'prescriptions/#',component: PrescriptionSuccessComponent}
         ]
     },
     {path: 'patientPanel', component: MainPatientPanelComponent,

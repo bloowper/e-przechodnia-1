@@ -1,0 +1,32 @@
+
+mat-card {
+    max-width: 313px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+mat-form-field {
+    display: block;
+}
+
+mat-card-title {
+    border-bottom: 1px solid #69f0ae;
+    width: 250px;
+}
+
+.h3 {
+    text-align: center;
+}
+
+mat-card.top-container {
+    display: grid;
+    grid-template-columns: 1fr 40% 40%;
+    grid-template-rows: 220px;
+    grid-gap: 20px;
+}
+
+
+.bold {
+    //font-weight: bold;
+    font-size: 17px;
+}

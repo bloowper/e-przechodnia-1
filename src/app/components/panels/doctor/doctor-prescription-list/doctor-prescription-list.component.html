@@ -4,7 +4,7 @@
 
     <mat-card>
         <mat-card-title class="pb-3"> Wypisz receptę</mat-card-title>
-        <form  #form="ngForm"><!--(ngSubmit)="onSubmit(form)"-->
+        <form #form="ngForm">
             <mat-form-field  appearance="fill" color="accent">
                 <mat-label>Imię pacjenta</mat-label>
                 <input
@@ -61,8 +61,11 @@
                 ></textarea>
 
             </mat-form-field>
-            <mat-card-actions>
-                <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Wypisz receptę</button>
+            <mat-card-actions><!--[disabled]="!form.valid"--->
+                <button
+                    type="submit" mat-raised-button color="primary"
+                    [routerLink]="['/doctorPanel/prescriptions/#']"
+                >Wypisz receptę</button>
             </mat-card-actions>
         </form>
     </mat-card>

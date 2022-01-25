@@ -80,6 +80,7 @@ import { DoctorVisitElementComponent } from './components/panels/doctor/doctor-v
 import { DoctorHistoryVisitElementComponent } from './components/panels/doctor/doctor-visit-list/doctor-history-visit-element/doctor-history-visit-element.component';
 import { HistoryVisitElementComponent } from './components/panels/patient/visit-list/history-visit-element/history-visit-element.component';
 import { PatientDetailsComponent } from './components/shared/profiles/patients/patient-details/patient-details.component';
+import { PrescriptionSuccessComponent } from './components/panels/doctor/doctor-prescription-list/prescription-success/prescription-success.component';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { PatientDetailsComponent } from './components/shared/profiles/patients/p
     DoctorHistoryVisitElementComponent,
     HistoryVisitElementComponent,
     PatientDetailsComponent,
+    PrescriptionSuccessComponent,
   ],
     imports: [
         BrowserModule,
